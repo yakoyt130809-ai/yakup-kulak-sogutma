@@ -1,25 +1,27 @@
-import { put } from "@vercel/blob";
+import { getContent, saveContent } from "@/lib/content";
 import { isAuthed } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-// Fotoğrafı Vercel Blob'a yükler, tam URL'sini döner.
-export async function POST(request) {
+// İçeriği getir (herkese açık — site de bunu kullanabilir).
+export async function GET() {
+  const content = await getContent();
+  return Response.json(content);
+}
+
+// İçeriği kaydet (sadece giriş yapmış admin).
+export async function PUT(request) {
   if (!(await isAuthed())) {
     return Response.json({ ok: false, error: "Yetkisiz" }, { status: 401 });
   }
-
-  const formData = await request.formData();
-  const file = formData.get("file");
-  if (!file || typeof file === "string") {
-    return Response.json({ ok: false, error: "Dosya yok" }, { status: 400 });
+  try {
+    const data = await request.json();
+    await saveContent(data);
+    return Response.json({ ok: true });
+  } catch (e) {
+    return Response.json(
+      { ok: false, error: "Kaydedilemedi: " + e.message },
+      { status: 500 }
+    );
   }
-
-  const ext = (file.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
-  const safeExt = ["jpg", "jpeg", "png", "webp", "gif"].includes(ext) ? ext : "jpg";
-  const name = `uploads/${Date.now()}-${Math.floor(Math.random() * 10000)}.${safeExt}`;
-
-  const blob = await put(name, file, { access: "public" });
-
-  return Response.json({ ok: true, path: blob.url });
 }
