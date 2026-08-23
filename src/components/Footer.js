@@ -1,5 +1,4 @@
 import Icon from "./Icon";
-import Brand from "./Brand";
 
 export default function Footer({ site, services }) {
   const year = new Date().getFullYear();
@@ -7,7 +6,10 @@ export default function Footer({ site, services }) {
     <footer className="bg-[var(--navy)] text-slate-300">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
-          <Brand name={site.businessName} tagline={site.tagline} variant="dark" />
+          <div className="font-heading text-2xl font-extrabold text-white">
+            {site.businessName}
+          </div>
+          <div className="font-elegant italic text-blue-300">{site.tagline}</div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             İstanbul&apos;un Avrupa ve Anadolu yakasında soğuk oda, kasap,
             pastane, süt ve sanayi tipi soğutma sistemleri tamiri. 7/24 acil

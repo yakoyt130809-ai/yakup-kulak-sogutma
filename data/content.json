@@ -1,6 +1,6 @@
 {
   "site": {
-    "businessName": "SoğukServis",
+    "businessName": "YAKUP KULAK",
     "tagline": "30 Yıllık Tecrübe",
     "phone": "0535 580 14 93",
     "phoneRaw": "+905355801493",
@@ -229,6 +229,16 @@
         ]
       },
       {
+        "id": "g-yemek",
+        "icon": "factory",
+        "label": "Yemek Üretim Tesisleri",
+        "items": [
+          "Uğraş Gıda",
+          "Efes Yemekçilik",
+          "Doyum Yemek"
+        ]
+      },
+      {
         "id": "g-et-sut",
         "icon": "meat",
         "label": "Et, Süt ve Gıda Üretimi",
@@ -262,16 +272,6 @@
           "Yıldız Pastanesi",
           "Rami Odun Ekmek",
           "Turut Unlu Mamuller"
-        ]
-      },
-      {
-        "id": "g-yemek",
-        "icon": "factory",
-        "label": "Yemek Üretim Tesisleri",
-        "items": [
-          "Uğraş Gıda",
-          "Efes Yemekçilik",
-          "Doyum Yemek"
         ]
       },
       {
