@@ -7,7 +7,6 @@ import About from "@/components/About";
 import ServiceAreas from "@/components/ServiceAreas";
 import Portfolio from "@/components/Portfolio";
 import References from "@/components/References";
-import Reviews from "@/components/Reviews";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -32,7 +31,6 @@ export default async function Home() {
     serviceAreas,
     portfolio,
     references,
-    reviews,
     faq,
   } = content;
 
@@ -48,7 +46,6 @@ export default async function Home() {
         <ServiceAreas serviceAreas={serviceAreas} />
         <Portfolio portfolio={portfolio} site={site} />
         <References references={references} site={site} />
-        <Reviews reviews={reviews} />
         <Faq faq={faq} />
         <Contact site={site} />
       </main>
