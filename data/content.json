@@ -1,0 +1,351 @@
+{
+  "site": {
+    "businessName": "YAKUP KULAK",
+    "tagline": "30 Yıllık Tecrübe",
+    "phone": "0535 580 14 93",
+    "phoneRaw": "+905355801493",
+    "whatsapp": "+905355801493",
+    "email": "",
+    "address": "Topkapı Türkiye İşçiler Merkezi (TİM), Fatih / İstanbul",
+    "workingHours": "7/24 Açık — Acil Servis",
+    "city": "İstanbul",
+    "region": "Avrupa ve Anadolu Yakası",
+    "metaTitle": "İstanbul Soğuk Oda & Sanayi Tipi Soğutma Tamiri | Yakup Kulak",
+    "metaDescription": "İstanbul'un her iki yakasında (Avrupa ve Anadolu) soğuk oda, kasap dolabı, pastane dolabı, süt soğutma ve sanayi tipi buzdolabı tamiri. 30 yıllık tecrübe, 7/24 acil servis, garantili işçilik. Hemen arayın!"
+  },
+  "hero": {
+    "title": "İstanbul Soğuk Oda ve Sanayi Tipi Soğutma Tamiri",
+    "subtitle": "Kasap, pastane, market ve süt dolaplarınıza 7/24 hızlı ve garantili servis. 30 yıllık tecrübeyle İstanbul'un Avrupa ve Anadolu yakasında, şehrin her noktasında yanınızdayız.",
+    "primaryCta": "Hemen Ara",
+    "secondaryCta": "WhatsApp'tan Yaz",
+    "stats": [
+      {
+        "value": "30+",
+        "label": "Yıllık Tecrübe"
+      },
+      {
+        "value": "7/24",
+        "label": "Acil Servis"
+      },
+      {
+        "value": "50+",
+        "label": "Kurumsal Referans"
+      },
+      {
+        "value": "Aynı Gün",
+        "label": "Hızlı Müdahale"
+      }
+    ]
+  },
+  "badges": [
+    {
+      "icon": "clock",
+      "title": "7/24 Acil Servis",
+      "text": "Gece gündüz arayın, aynı gün müdahale edelim."
+    },
+    {
+      "icon": "medal",
+      "title": "30 Yıllık Tecrübe",
+      "text": "Binlerce başarılı tamir ve bakım işi."
+    },
+    {
+      "icon": "handshake",
+      "title": "Büyük Firmalarla Çalışıyoruz",
+      "text": "Market, kasap ve pastane zincirlerine hizmet."
+    },
+    {
+      "icon": "shield",
+      "title": "Garantili İşçilik",
+      "text": "Yapılan tüm işler garanti kapsamındadır."
+    }
+  ],
+  "about": {
+    "title": "Hakkımızda",
+    "lead": "30 yılı aşkın tecrübeyle İstanbul'un güvenilir soğutma ustası.",
+    "paragraphs": [
+      "Yakup Kulak olarak 30 yılı aşkın süredir İstanbul'da ticari ve sanayi tipi soğutma sistemlerinin kurulumu, tamiri ve bakımını yapıyoruz. Soğuk oda, kasap teşhir dolabı, pastane dolabı, süt soğutma tankı ve sanayi tipi buzdolaplarında marka fark etmeksizin her arızaya çözüm üretiyoruz.",
+      "İşletmenizin ürünleri bozulmadan, en kısa sürede müdahale etmek için İstanbul'un hem Avrupa hem Anadolu yakasında 7/24 acil servis veriyoruz. Orijinal yedek parça, faturalı ve garantili işçilikle çalışıyoruz.",
+      "Amacımız; market, kasap, pastane, restoran ve gıda işletmelerinin soğutma sistemlerini kesintisiz çalışır halde tutmak ve size güvenle çözüm ortağı olmaktır."
+    ],
+    "highlights": [
+      "Orijinal yedek parça",
+      "Faturalı ve garantili iş",
+      "Her marka cihaz",
+      "Ücretsiz keşif ve fiyat teklifi",
+      "Aynı gün müdahale",
+      "Büyük firmalarla çalışma tecrübesi"
+    ]
+  },
+  "services": [
+    {
+      "id": "soguk-oda-tamiri",
+      "title": "Soğuk Oda Tamiri",
+      "icon": "snowflake",
+      "description": "Soğuk hava depoları ve soğuk odalarda sıcaklık dengesizliği, gaz kaçağı, kompresör ve elektrik pano arızalarına 7/24 hızlı müdahale. Ürünleriniz bozulmadan aynı gün çözüm."
+    },
+    {
+      "id": "sut-sogutma-dolabi-tamiri",
+      "title": "Süt Soğutma (Sütlük) Dolabı Tamiri",
+      "icon": "milk",
+      "description": "Süt soğutma tankları ve sütlük dolaplarının soğutmama, ısı yapma ve termostat arızalarını orijinal parçalarla, hijyen kurallarına uygun şekilde gideriyoruz."
+    },
+    {
+      "id": "kasap-dolabi-tamiri",
+      "title": "Kasap Teşhir Dolabı Tamiri",
+      "icon": "meat",
+      "description": "Kasap reyon ve teşhir dolaplarınızın ideal sıcaklıkta çalışması için soğutma, fan, cam buğulanması ve kompresör tamiri. Etleriniz her zaman taze kalsın."
+    },
+    {
+      "id": "pastane-dolabi-tamiri",
+      "title": "Pasta / Pastane Dolabı Tamiri",
+      "icon": "cake",
+      "description": "Pastane teşhir dolapları ve şoklama cihazlarının hassas nem ve sıcaklık ayarları, soğutma arızaları için uzman servis. Ürünlerinizin görünümü ve tazeliği korunur."
+    },
+    {
+      "id": "sanayi-tipi-buzdolabi-tamiri",
+      "title": "Sanayi Tipi Buzdolabı Tamiri",
+      "icon": "fridge",
+      "description": "Endüstriyel buzdolapları, dik tip ve tezgah tipi soğutucuların her marka arızasına garantili tamir ve bakım. Restoran ve mutfaklar için hızlı çözüm."
+    },
+    {
+      "id": "kompresor-degisimi-gaz-dolumu",
+      "title": "Kompresör Değişimi & Gaz Dolumu",
+      "icon": "wrench",
+      "description": "Tüm soğutma sistemlerinde kompresör değişimi, gaz kaçağı tespiti ve gaz dolumu. Doğru gaz, doğru basınç, uzun ömürlü çalışma."
+    },
+    {
+      "id": "periyodik-bakim",
+      "title": "Periyodik Bakım Anlaşmaları",
+      "icon": "calendar",
+      "description": "İşletmeler için düzenli bakım anlaşmaları. Arıza oluşmadan önleyici bakımla enerji tasarrufu sağlayın, beklenmedik duruşları önleyin."
+    }
+  ],
+  "serviceAreas": {
+    "title": "Hizmet Bölgelerimiz",
+    "intro": "İstanbul'un her iki yakasında — Avrupa ve Anadolu — soğutma tamiri hizmeti veriyoruz. Bölgenizi listede görmüyorsanız yine de arayın, büyük ihtimalle geliyoruz.",
+    "areas": [
+      "Zeytinburnu",
+      "Fatih",
+      "Bayrampaşa",
+      "Bağcılar",
+      "Esenler",
+      "Güngören",
+      "Bahçelievler",
+      "Bakırköy",
+      "Küçükçekmece",
+      "Başakşehir",
+      "Sultangazi",
+      "Gaziosmanpaşa",
+      "Eyüpsultan",
+      "Beylikdüzü",
+      "Avcılar",
+      "Büyükçekmece",
+      "Beyoğlu",
+      "Şişli",
+      "Kağıthane",
+      "Arnavutköy",
+      "Silivri",
+      "Kadıköy",
+      "Üsküdar",
+      "Ataşehir",
+      "Maltepe",
+      "Kartal",
+      "Pendik",
+      "Ümraniye",
+      "Sancaktepe",
+      "Sultanbeyli",
+      "Tuzla",
+      "Çekmeköy",
+      "Beykoz",
+      "Şile"
+    ]
+  },
+  "portfolio": [
+    {
+      "id": "p1",
+      "title": "Market Soğuk Oda Kurulumu",
+      "category": "Soğuk Oda",
+      "description": "Zincir markete tam donanımlı soğuk hava deposu kurulumu; panel montajı, kompresör ve soğutma grubu bağlantısı ile teslim edildi.",
+      "image": null
+    },
+    {
+      "id": "p2",
+      "title": "Kasap Teşhir Dolabı Tamiri",
+      "category": "Kasap Dolabı",
+      "description": "Isı yapan ve cam buğulanan kasap teşhir dolabının fan, termostat ve soğutma sistemi onarıldı; ideal reyon sıcaklığına getirildi.",
+      "image": null
+    },
+    {
+      "id": "p3",
+      "title": "Pastane Dolabı Bakımı",
+      "category": "Pastane Dolabı",
+      "description": "Pastane teşhir dolabında nem ve sıcaklık ayarı yapıldı, soğutma grubu bakımı ile ürün tazeliği ve görünümü korundu.",
+      "image": null
+    },
+    {
+      "id": "p4",
+      "title": "Sanayi Tipi Buzdolabı Onarımı",
+      "category": "Sanayi Tipi",
+      "description": "Restoran mutfağındaki dik tip endüstriyel buzdolabının soğutmama arızası giderildi; garantili işçilikle aynı gün teslim.",
+      "image": null
+    },
+    {
+      "id": "p5",
+      "title": "Soğuk Hava Deposu Kompresör Değişimi",
+      "category": "Kompresör & Gaz",
+      "description": "Arızalı kompresör orijinal parça ile değiştirildi, gaz kaçağı tespit edilip dolum yapıldı, basınç değerleri optimize edildi.",
+      "image": null
+    },
+    {
+      "id": "p6",
+      "title": "Süt Soğutma Tankı Servisi",
+      "category": "Süt Soğutma",
+      "description": "Süt soğutma tankının termostat ve soğutma arızası hijyen kurallarına uygun şekilde giderildi, periyodik bakıma bağlandı.",
+      "image": null
+    }
+  ],
+  "references": {
+    "eyebrow": "Referanslar",
+    "title": "Hizmet Verdiğimiz Kurumlar",
+    "intro": "Devlet hastanelerinden gıda üretim tesislerine, otellerden gemilere kadar birbirinden farklı ölçekte işletmenin soğutma sistemlerini kurduk, tamir ettik ve bakımını üstlendik.",
+    "note": "Listede yer alan kurumlarda soğuk oda, şoklama, teşhir dolabı ve merkezi soğutma sistemlerinde kurulum, tamir ve periyodik bakım işleri yapılmıştır.",
+    "yearsLabel": "Yıllık Tecrübe",
+    "years": "30",
+    "groups": [
+      {
+        "id": "g-saglik",
+        "icon": "hospital",
+        "label": "Hastane ve Kamu Kurumları",
+        "items": [
+          "Haseki Eğitim ve Araştırma Hastanesi (Sultangazi)",
+          "Okmeydanı Prof. Dr. Cemil Taşcıoğlu Şehir Hastanesi",
+          "Bahçelievler Fizik Tedavi Eğitim ve Araştırma Hastanesi",
+          "Baltalimanı Kemik Hastalıkları Hastanesi",
+          "Eyüp Devlet Hastanesi",
+          "Silivri Devlet Hastanesi",
+          "Eyüp Ağız ve Diş Sağlığı Merkezi",
+          "Sultangazi Ağız ve Diş Sağlığı Merkezi",
+          "Ankara Gölbaşı Öğrenci Yurdu"
+        ]
+      },
+      {
+        "id": "g-yemek",
+        "icon": "factory",
+        "label": "Yemek Üretim Tesisleri",
+        "items": [
+          "Uğraş Gıda",
+          "Efes Yemekçilik",
+          "Doyum Yemek"
+        ]
+      },
+      {
+        "id": "g-et-sut",
+        "icon": "meat",
+        "label": "Et, Süt ve Gıda Üretimi",
+        "items": [
+          "Furkan Et ve Süt Ürünleri",
+          "Hamza Et ve Süt Ürünleri",
+          "Arslan Peynircilik – Süt ve Et Ürünleri",
+          "Çınar Peynircilik ve Süt Ürünleri",
+          "Dadaş Peynircilik",
+          "Akcan Et Ürünleri ve Besicilik",
+          "Develioğlu Et Ürünleri",
+          "Aydoğdu Et ve Tavuk",
+          "Salvarlı Et",
+          "Halk Tavukçuluk",
+          "Adıyaman Gurme Çiğköfte Fabrikası"
+        ]
+      },
+      {
+        "id": "g-restoran",
+        "icon": "utensils",
+        "label": "Restoran, Kasap ve Pastaneler",
+        "items": [
+          "Kazan Lokantası (Şubeleri)",
+          "Köroğlu Et Restaurant",
+          "Doyum Kebap Restaurant",
+          "79 Restaurant",
+          "Mexican Döner",
+          "Yunus Kasap",
+          "Et Tanzim",
+          "Bircan Pastanesi",
+          "Yıldız Pastanesi",
+          "Rami Odun Ekmek",
+          "Turut Unlu Mamuller"
+        ]
+      },
+      {
+        "id": "g-otel",
+        "icon": "hotel",
+        "label": "Otel ve Turizm",
+        "items": [
+          "Taksim Büyük Londra Oteli",
+          "Taksim Grand Pera Oteli",
+          "Taksim Bristol Oteli"
+        ]
+      },
+      {
+        "id": "g1786139186057",
+        "icon": "ship",
+        "label": "Denizcilik ve Gemi Soğutma",
+        "items": [
+          "Lider Uluslararası Gemi Taşımacılığı",
+          "Hicaz Denizcilik",
+          "Gemi Soğutma Sistemleri — Vakum ve Onarım İşleri"
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "r1",
+      "name": "Mehmet A.",
+      "location": "Bağcılar",
+      "rating": 5,
+      "text": "Marketimizin soğuk odası gece bozuldu, sabaha kalmadan geldi ve hallettiler. Ürünlerimiz kurtuldu. Kesinlikle tavsiye ederim."
+    },
+    {
+      "id": "r2",
+      "name": "Hasan Kasap",
+      "location": "Zeytinburnu",
+      "rating": 5,
+      "text": "Teşhir dolabım ısı yapıyordu, aynı gün gelip tamir etti. Fiyatı da gayet uygundu, işini bilen usta."
+    },
+    {
+      "id": "r3",
+      "name": "Ayşe Pastanesi",
+      "location": "Bakırköy",
+      "rating": 5,
+      "text": "Pastane dolabımızın soğutması bozulmuştu, çok hızlı ve temiz çalıştılar. Artık düzenli bakımımızı da onlar yapıyor."
+    },
+    {
+      "id": "r4",
+      "name": "Serkan Restoran",
+      "location": "Şişli",
+      "rating": 5,
+      "text": "Sanayi tipi buzdolabımız için birkaç yere sorduk, en güvenilir çözümü Yakup usta verdi. Garantili iş yapıyor."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Aynı gün servis veriyor musunuz?",
+      "a": "Evet. İstanbul'un her iki yakasında da çoğu arızaya aynı gün, çoğu zaman birkaç saat içinde müdahale ediyoruz. Acil durumlar için 7/24 ulaşabilirsiniz."
+    },
+    {
+      "q": "Hangi bölgelere hizmet veriyorsunuz?",
+      "a": "İstanbul'un tamamına hizmet veriyoruz. Avrupa Yakası'nda Zeytinburnu, Fatih, Bayrampaşa, Bağcılar, Bakırköy, Küçükçekmece ve çevresi; Anadolu Yakası'nda Kadıköy, Üsküdar, Ataşehir, Maltepe, Kartal, Pendik, Ümraniye ve çevresi başta olmak üzere her ilçeye gidiyoruz."
+    },
+    {
+      "q": "Keşif ve fiyat teklifi ücretli mi?",
+      "a": "Keşif ve fiyat teklifimiz ücretsizdir. Arızayı gördükten sonra net fiyatı söyler, onayınızı almadan işleme başlamayız."
+    },
+    {
+      "q": "Hangi marka cihazları tamir ediyorsunuz?",
+      "a": "Marka fark etmeksizin tüm ticari ve sanayi tipi soğutma cihazlarını tamir ediyoruz. Soğuk oda, kasap, pastane, süt ve sanayi tipi buzdolapları dahil."
+    },
+    {
+      "q": "Yapılan işlere garanti veriyor musunuz?",
+      "a": "Evet, tüm işçilik ve değiştirdiğimiz parçalar garanti kapsamındadır. Faturalı çalışıyoruz."
+    }
+  ]
+}
