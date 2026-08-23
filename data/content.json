@@ -275,16 +275,6 @@
         ]
       },
       {
-        "id": "g-otel",
-        "icon": "hotel",
-        "label": "Otel ve Turizm",
-        "items": [
-          "Taksim Büyük Londra Oteli",
-          "Taksim Grand Pera Oteli",
-          "Taksim Bristol Oteli"
-        ]
-      },
-      {
         "id": "g1786139186057",
         "icon": "ship",
         "label": "Denizcilik ve Gemi Soğutma",
@@ -292,6 +282,16 @@
           "Lider Uluslararası Gemi Taşımacılığı",
           "Hicaz Denizcilik",
           "Gemi Soğutma Sistemleri — Vakum ve Onarım İşleri"
+        ]
+      },
+      {
+        "id": "g-otel",
+        "icon": "hotel",
+        "label": "Otel ve Turizm",
+        "items": [
+          "Taksim Büyük Londra Oteli",
+          "Taksim Grand Pera Oteli",
+          "Taksim Bristol Oteli"
         ]
       }
     ]

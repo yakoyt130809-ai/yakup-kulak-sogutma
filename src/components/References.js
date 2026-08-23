@@ -52,11 +52,11 @@ export default function References({ references, site }) {
         </div>
 
         {/* Sektöre göre kurum listeleri */}
-        <div className="mt-10 columns-1 gap-6 md:columns-2 xl:columns-3">
+        <div className="mt-10 grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
           {groups.map((g) => (
             <div
               key={g.id}
-              className="mb-6 break-inside-avoid rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md"
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-md"
             >
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand/10 text-brand">
@@ -91,7 +91,7 @@ export default function References({ references, site }) {
         </div>
 
         {/* Alt not + arama daveti */}
-        <div className="mt-4 flex flex-col items-center gap-5 rounded-2xl border border-slate-200 bg-white px-6 py-7 text-center shadow-sm sm:flex-row sm:justify-between sm:text-left">
+        <div className="mt-10 flex flex-col items-center gap-5 rounded-2xl border border-slate-200 bg-white px-6 py-7 text-center shadow-sm sm:flex-row sm:justify-between sm:text-left">
           {references.note && (
             <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
               {references.note}
