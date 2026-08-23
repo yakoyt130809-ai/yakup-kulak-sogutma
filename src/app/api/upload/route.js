@@ -3,7 +3,6 @@ import { isAuthed } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-// Fotoğrafı Vercel Blob'a yükler, tam URL'sini döner.
 export async function POST(request) {
   if (!(await isAuthed())) {
     return Response.json({ ok: false, error: "Yetkisiz" }, { status: 401 });
@@ -19,7 +18,10 @@ export async function POST(request) {
   const safeExt = ["jpg", "jpeg", "png", "webp", "gif"].includes(ext) ? ext : "jpg";
   const name = `uploads/${Date.now()}-${Math.floor(Math.random() * 10000)}.${safeExt}`;
 
-  const blob = await put(name, file, { access: "public" });
+  const blob = await put(name, file, {
+    access: "public",
+    token: process.env.BLOB2_READ_WRITE_TOKEN,
+  });
 
   return Response.json({ ok: true, path: blob.url });
 }

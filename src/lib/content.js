@@ -2,12 +2,11 @@ import { put, list } from "@vercel/blob";
 import fallbackData from "../../data/content.json";
 
 const FILENAME = "content.json";
+const BLOB_TOKEN = process.env.BLOB2_READ_WRITE_TOKEN;
 
-// İçeriği Vercel Blob'dan okur. Blob'da henüz yoksa (ilk çalıştırma),
-// projeyle birlikte gelen content.json'ı yedek olarak kullanır.
 export async function getContent() {
   try {
-    const { blobs } = await list({ prefix: FILENAME, limit: 1 });
+    const { blobs } = await list({ prefix: FILENAME, limit: 1, token: BLOB_TOKEN });
     if (blobs.length === 0) {
       return fallbackData;
     }
@@ -19,11 +18,11 @@ export async function getContent() {
   }
 }
 
-// İçeriği Vercel Blob'a kaydeder (admin paneli bunu kullanır).
 export async function saveContent(data) {
   await put(FILENAME, JSON.stringify(data, null, 2), {
     access: "public",
     addRandomSuffix: false,
     contentType: "application/json",
+    token: BLOB_TOKEN,
   });
 }
