@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Icon from "./Icon";
+import Brand from "./Brand";
 
 const NAV = [
   { href: "#anasayfa", label: "Ana Sayfa" },
@@ -9,7 +10,7 @@ const NAV = [
   { href: "#hizmetler", label: "Hizmetler" },
   { href: "#bolgeler", label: "Bölgeler" },
   { href: "#portfoy", label: "Portföy" },
-  { href: "#yorumlar", label: "Yorumlar" },
+  { href: "#referanslar", label: "Referanslar" },
   { href: "#iletisim", label: "İletişim" },
 ];
 
@@ -85,14 +86,7 @@ export default function Header({ site }) {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         {/* Marka */}
-        <a href="#anasayfa" className="flex flex-col leading-none">
-          <span className="font-heading text-xl font-extrabold tracking-wide text-[var(--navy)] sm:text-2xl">
-            {site.businessName}
-          </span>
-          <span className="font-elegant italic text-[13px] text-brand sm:text-sm">
-            {site.tagline}
-          </span>
-        </a>
+        <Brand name={site.businessName} tagline={site.tagline} />
 
         {/* Masaüstü menü */}
         <nav className="relative hidden items-center gap-1 lg:flex">
