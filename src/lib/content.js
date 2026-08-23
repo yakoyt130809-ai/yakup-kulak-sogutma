@@ -22,6 +22,7 @@ export async function saveContent(data) {
   await put(FILENAME, JSON.stringify(data, null, 2), {
     access: "public",
     addRandomSuffix: false,
+    allowOverwrite: true,
     contentType: "application/json",
     token: BLOB_TOKEN,
   });
