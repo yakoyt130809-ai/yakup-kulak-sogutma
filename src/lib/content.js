@@ -1,15 +1,29 @@
-import fs from "fs/promises";
-import path from "path";
+import { put, list } from "@vercel/blob";
+import fallbackData from "../../data/content.json";
 
-const FILE = path.join(process.cwd(), "data", "content.json");
+const FILENAME = "content.json";
 
-// İçeriği JSON dosyasından okur (site her yerde bunu kullanır).
+// İçeriği Vercel Blob'dan okur. Blob'da henüz yoksa (ilk çalıştırma),
+// projeyle birlikte gelen content.json'ı yedek olarak kullanır.
 export async function getContent() {
-  const raw = await fs.readFile(FILE, "utf-8");
-  return JSON.parse(raw);
+  try {
+    const { blobs } = await list({ prefix: FILENAME, limit: 1 });
+    if (blobs.length === 0) {
+      return fallbackData;
+    }
+    const res = await fetch(blobs[0].url, { cache: "no-store" });
+    return res.json();
+  } catch (err) {
+    console.error("Blob okuma hatası, yedek veri kullanılıyor:", err);
+    return fallbackData;
+  }
 }
 
-// İçeriği JSON dosyasına kaydeder (admin paneli bunu kullanır).
+// İçeriği Vercel Blob'a kaydeder (admin paneli bunu kullanır).
 export async function saveContent(data) {
-  await fs.writeFile(FILE, JSON.stringify(data, null, 2), "utf-8");
+  await put(FILENAME, JSON.stringify(data, null, 2), {
+    access: "public",
+    addRandomSuffix: false,
+    contentType: "application/json",
+  });
 }
