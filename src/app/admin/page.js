@@ -21,6 +21,7 @@ const TABS = [
   { id: "bolgeler", label: "Bölgeler", icon: "mapPin" },
   { id: "portfoy", label: "Portföy", icon: "image" },
   { id: "referanslar", label: "Referanslar", icon: "handshake" },
+  { id: "yorumlar", label: "Yorumlar", icon: "star" },
   { id: "sss", label: "S.S.S.", icon: "clock" },
   { id: "guvenlik", label: "Güvenlik", icon: "lock" },
 ];
@@ -322,6 +323,7 @@ export default function Admin() {
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   <Stat label="Hizmet" value={data.services.length} icon="wrench" />
                   <Stat label="Portföy İşi" value={data.portfolio.length} icon="image" />
+                  <Stat label="Yorum" value={data.reviews.length} icon="star" />
                   <Stat label="Referans Kurum" value={refCount} icon="handshake" />
                   <Stat label="Hizmet Bölgesi" value={data.serviceAreas.areas.length} icon="mapPin" />
                   <Stat label="S.S.S." value={data.faq.length} icon="clock" />
@@ -330,7 +332,7 @@ export default function Admin() {
               <Card title="Hızlı İşlemler">
                 <div className="flex flex-wrap gap-2">
                   <Btn variant="ghost" onClick={() => setTab("portfoy")}>Portföy fotoğrafı ekle</Btn>
-                  <Btn variant="ghost" onClick={() => setTab("referanslar")}>Referans ekle</Btn>
+                  <Btn variant="ghost" onClick={() => setTab("yorumlar")}>Yorum ekle</Btn>
                   <Btn variant="ghost" onClick={() => setTab("genel")}>İletişim bilgisi düzenle</Btn>
                   <Btn variant="ghost" onClick={() => setTab("guvenlik")}>Şifre değiştir</Btn>
                   <a href="/" target="_blank">
@@ -678,6 +680,45 @@ export default function Admin() {
                 </div>
               </Card>
             </>
+          )}
+
+          {tab === "yorumlar" && (
+            <Card
+              title="Müşteri Yorumları"
+              action={<Btn variant="ghost" onClick={() => addArrItem("reviews", { id: "r" + Date.now(), name: "", location: "", rating: 5, text: "" })}>+ Ekle</Btn>}
+            >
+              <div className="space-y-4">
+                {data.reviews.map((r, i) => (
+                  <div key={i} className="grid gap-3 rounded-lg border border-slate-200 p-4">
+                    <div className="grid gap-3 sm:grid-cols-3">
+                      <Field label="İsim">
+                        <Input value={r.name} onChange={(e) => setArrItem("reviews", i, "name", e.target.value)} />
+                      </Field>
+                      <Field label="Bölge">
+                        <Input value={r.location} onChange={(e) => setArrItem("reviews", i, "location", e.target.value)} />
+                      </Field>
+                      <Field label="Puan (1-5)">
+                        <select className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" value={r.rating} onChange={(e) => setArrItem("reviews", i, "rating", Number(e.target.value))}>
+                          {[5, 4, 3, 2, 1].map((n) => <option key={n} value={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                    </div>
+                    <Field label="Yorum">
+                      <Textarea rows={2} value={r.text} onChange={(e) => setArrItem("reviews", i, "text", e.target.value)} />
+                    </Field>
+                    <div className="flex items-center justify-between">
+                      <Reorder
+                        onUp={() => moveArrItem("reviews", i, -1)}
+                        onDown={() => moveArrItem("reviews", i, 1)}
+                        canUp={i > 0}
+                        canDown={i < data.reviews.length - 1}
+                      />
+                      <Btn variant="danger" onClick={() => removeArrItem("reviews", i)}>Sil</Btn>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
           )}
 
           {tab === "sss" && (

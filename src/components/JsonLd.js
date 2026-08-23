@@ -1,6 +1,12 @@
 // Google'ın işletmeyi ve hizmetleri anlaması için yapısal veri (Schema.org).
 export default function JsonLd({ content, siteUrl }) {
-  const { site, services, faq, serviceAreas } = content;
+  const { site, services, reviews, faq, serviceAreas } = content;
+  const ratingValue =
+    reviews.length > 0
+      ? (
+          reviews.reduce((s, r) => s + (r.rating || 5), 0) / reviews.length
+        ).toFixed(1)
+      : "5.0";
 
   const localBusiness = {
     "@context": "https://schema.org",
@@ -34,6 +40,21 @@ export default function JsonLd({ content, siteUrl }) {
       opens: "00:00",
       closes: "23:59",
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue,
+      reviewCount: reviews.length,
+    },
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.name },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: 5,
+      },
+      reviewBody: r.text,
+    })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Soğutma Tamir Hizmetleri",
