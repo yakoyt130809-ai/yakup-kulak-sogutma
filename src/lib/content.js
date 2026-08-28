@@ -1,16 +1,8 @@
-import { v2 as cloudinary } from "cloudinary";
 import fallbackData from "../../data/content.json";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const CONTENT_URL = `https://res.cloudinary.com/${cloudName}/raw/upload/site-content.json`;
 
-const CONTENT_URL = `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/raw/upload/site-content.json`;
-
-// İçeriği Cloudinary'den okur. Orada yoksa/hata varsa projeyle gelen
-// yedek veriyi kullanır, site asla çökmez.
 export async function getContent() {
   try {
     const res = await fetch(CONTENT_URL, { cache: "no-store" });
@@ -22,16 +14,22 @@ export async function getContent() {
   }
 }
 
-// İçeriği Cloudinary'ye kaydeder (admin paneli bunu kullanır).
 export async function saveContent(data) {
   const json = JSON.stringify(data, null, 2);
-  const base64 = Buffer.from(json).toString("base64");
-  const dataUri = `data:application/json;base64,${base64}`;
+  const blob = new Blob([json], { type: "application/json" });
 
-  await cloudinary.uploader.upload(dataUri, {
-    resource_type: "raw",
-    public_id: "site-content.json",
-    overwrite: true,
-    invalidate: true,
+  const uploadForm = new FormData();
+  uploadForm.append("file", blob, "site-content.json");
+  uploadForm.append("upload_preset", "site_uploads");
+  uploadForm.append("public_id", "site-content");
+
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`, {
+    method: "POST",
+    body: uploadForm,
   });
+
+  if (!res.ok) {
+    const result = await res.json();
+    throw new Error(result.error?.message || "Kaydetme başarısız");
+  }
 }
