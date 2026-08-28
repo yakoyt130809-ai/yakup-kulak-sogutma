@@ -1,7 +1,13 @@
-import { put } from "@vercel/blob";
+import { v2 as cloudinary } from "cloudinary";
 import { isAuthed } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request) {
   if (!(await isAuthed())) {
@@ -14,14 +20,12 @@ export async function POST(request) {
     return Response.json({ ok: false, error: "Dosya yok" }, { status: 400 });
   }
 
-  const ext = (file.name.split(".").pop() || "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
-  const safeExt = ["jpg", "jpeg", "png", "webp", "gif"].includes(ext) ? ext : "jpg";
-  const name = `uploads/${Date.now()}-${Math.floor(Math.random() * 10000)}.${safeExt}`;
+  const bytes = Buffer.from(await file.arrayBuffer());
+  const base64 = `data:${file.type};base64,${bytes.toString("base64")}`;
 
-  const blob = await put(name, file, {
-    access: "public",
-    token: process.env.BLOB2_READ_WRITE_TOKEN,
+  const result = await cloudinary.uploader.upload(base64, {
+    folder: "uploads",
   });
 
-  return Response.json({ ok: true, path: blob.url });
+  return Response.json({ ok: true, path: result.secure_url });
 }
