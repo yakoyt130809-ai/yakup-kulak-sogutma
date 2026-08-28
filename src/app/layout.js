@@ -58,6 +58,9 @@ export async function generateMetadata() {
       follow: true,
       googleBot: { index: true, follow: true, "max-image-preview": "large" },
     },
+    verification: {
+      google: "HQA8K6ZiKdSD9PioHThZw8zVde5TthG7qsHdPgf2SQ8",
+    },
   };
 }
 
