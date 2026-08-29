@@ -5,7 +5,7 @@ const CONTENT_URL = `https://res.cloudinary.com/${cloudName}/raw/upload/site-con
 
 export async function getContent() {
   try {
-    const res = await fetch(CONTENT_URL, { cache: "no-store" });
+    const res = await fetch(`${CONTENT_URL}?t=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) return fallbackData;
     return await res.json();
   } catch (err) {
