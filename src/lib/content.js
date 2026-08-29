@@ -13,7 +13,10 @@ const CONTENT_URL = `https://res.cloudinary.com/${cloudName}/raw/upload/site-con
 export async function getContent() {
   try {
     const res = await fetch(`${CONTENT_URL}?t=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) return fallbackData;
+    if (!res.ok) {
+      console.error("Cloudinary content okunamadı, status:", res.status, res.statusText);
+      return fallbackData;
+    }
     return await res.json();
   } catch (err) {
     console.error("Cloudinary okuma hatası, yedek veri kullanılıyor:", err);
