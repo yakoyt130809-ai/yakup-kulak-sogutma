@@ -1,4 +1,11 @@
+import { v2 as cloudinary } from "cloudinary";
 import fallbackData from "../../data/content.json";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
 const CONTENT_URL = `https://res.cloudinary.com/${cloudName}/raw/upload/site-content.json`;
@@ -16,20 +23,13 @@ export async function getContent() {
 
 export async function saveContent(data) {
   const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json], { type: "application/json" });
+  const base64 = Buffer.from(json).toString("base64");
+  const dataUri = `data:application/json;base64,${base64}`;
 
-  const uploadForm = new FormData();
-  uploadForm.append("file", blob, "site-content.json");
-  uploadForm.append("upload_preset", "site_uploads");
-  uploadForm.append("public_id", "site-content.json");
-
-  const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`, {
-    method: "POST",
-    body: uploadForm,
+  await cloudinary.uploader.upload(dataUri, {
+    resource_type: "raw",
+    public_id: "site-content.json",
+    overwrite: true,
+    invalidate: true,
   });
-
-  if (!res.ok) {
-    const result = await res.json();
-    throw new Error(result.error?.message || "Kaydetme başarısız");
-  }
 }
