@@ -21,7 +21,7 @@ export async function saveContent(data) {
   const uploadForm = new FormData();
   uploadForm.append("file", blob, "site-content.json");
   uploadForm.append("upload_preset", "site_uploads");
-  uploadForm.append("public_id", "site-content");
+  uploadForm.append("public_id", "site-content.json");
 
   const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`, {
     method: "POST",
