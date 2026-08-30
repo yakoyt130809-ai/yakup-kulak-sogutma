@@ -1,18 +1,18 @@
-import { v2 as cloudinary } from "cloudinary";
 import fallbackData from "../../data/content.json";
+import { getCloudinary, getCloudName } from "@/lib/cloudinary";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+const CONTENT_PUBLIC_ID = "site-content.json";
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-const CONTENT_URL = `https://res.cloudinary.com/${cloudName}/raw/upload/site-content.json`;
+function contentUrl() {
+  return `https://res.cloudinary.com/${getCloudName()}/raw/upload/${CONTENT_PUBLIC_ID}`;
+}
 
 export async function getContent() {
   try {
-    const res = await fetch(`${CONTENT_URL}?t=${Date.now()}`, { cache: "no-store" });
+    const res = await fetch(`${contentUrl()}?v=${Date.now()}`, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+    });
     if (!res.ok) {
       console.error("Cloudinary content okunamadı, status:", res.status, res.statusText);
       return fallbackData;
@@ -25,14 +25,30 @@ export async function getContent() {
 }
 
 export async function saveContent(data) {
+  if (!data || typeof data !== "object" || Array.isArray(data)) {
+    throw new Error("Gecersiz icerik verisi.");
+  }
+
   const json = JSON.stringify(data, null, 2);
   const base64 = Buffer.from(json).toString("base64");
   const dataUri = `data:application/json;base64,${base64}`;
 
-  await cloudinary.uploader.upload(dataUri, {
+  const result = await getCloudinary().uploader.upload(dataUri, {
     resource_type: "raw",
-    public_id: "site-content.json",
+    public_id: CONTENT_PUBLIC_ID,
     overwrite: true,
     invalidate: true,
   });
+
+  if (!result?.secure_url) {
+    throw new Error("Cloudinary kayit yanitinda dosya adresi yok.");
+  }
+
+  const verification = await fetch(`${result.secure_url}?v=${result.version}`, {
+    cache: "no-store",
+  });
+  if (!verification.ok) {
+    throw new Error(`Kaydedilen icerik dogrulanamadi (${verification.status}).`);
+  }
+  await verification.json();
 }

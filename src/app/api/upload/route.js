@@ -1,4 +1,5 @@
 import { isAuthed } from "@/lib/auth";
+import { getCloudName } from "@/lib/cloudinary";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,12 @@ export async function POST(request) {
     return Response.json({ ok: false, error: "Dosya yok" }, { status: 400 });
   }
 
-  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  let cloudName;
+  try {
+    cloudName = getCloudName();
+  } catch (error) {
+    return Response.json({ ok: false, error: error.message }, { status: 500 });
+  }
   const uploadForm = new FormData();
   uploadForm.append("file", file);
   uploadForm.append("upload_preset", "site_uploads");

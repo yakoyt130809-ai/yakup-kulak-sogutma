@@ -85,17 +85,21 @@ export default function Admin() {
   const save = async () => {
     setSaving(true);
     setMsg("");
-    const res = await fetch("/api/content", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    setSaving(false);
-    if (res.ok) {
+    try {
+      const res = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(result.error || `Sunucu hatası (${res.status})`);
+
       setDirty(false);
       setMsg("✓ Kaydedildi! Site güncellendi.");
-    } else {
-      setMsg("✗ Kaydedilemedi.");
+    } catch (error) {
+      setMsg("✗ " + error.message);
+    } finally {
+      setSaving(false);
     }
     setTimeout(() => setMsg(""), 4000);
   };
