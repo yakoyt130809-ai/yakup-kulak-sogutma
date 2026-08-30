@@ -1,13 +1,31 @@
 import fallbackData from "../../data/content.json";
+import { get, put } from "@vercel/blob";
 import { getCloudinary, getCloudName } from "@/lib/cloudinary";
 
 const CONTENT_PUBLIC_ID = "site-content.json";
+const BLOB_PATH = "site-content.json";
+
+function blobOptions() {
+  const token = process.env.BLOB2_READ_WRITE_TOKEN;
+  if (!token) return null;
+  return { access: "public", token };
+}
 
 function contentUrl() {
   return `https://res.cloudinary.com/${getCloudName()}/raw/upload/${CONTENT_PUBLIC_ID}`;
 }
 
 export async function getContent() {
+  const blob = blobOptions();
+  if (blob) {
+    try {
+      const result = await get(BLOB_PATH, { ...blob, useCache: false });
+      if (result) return await new Response(result.stream).json();
+    } catch (err) {
+      console.error("Vercel Blob okuma hatasi, Cloudinary deneniyor:", err);
+    }
+  }
+
   try {
     const res = await fetch(`${contentUrl()}?v=${Date.now()}`, {
       cache: "no-store",
@@ -30,6 +48,23 @@ export async function saveContent(data) {
   }
 
   const json = JSON.stringify(data, null, 2);
+  const blob = blobOptions();
+
+  if (blob) {
+    await put(BLOB_PATH, json, {
+      ...blob,
+      addRandomSuffix: false,
+      allowOverwrite: true,
+      cacheControlMaxAge: 60,
+      contentType: "application/json; charset=utf-8",
+    });
+
+    const verification = await get(BLOB_PATH, { ...blob, useCache: false });
+    if (!verification) throw new Error("Vercel Blob kaydi dogrulanamadi.");
+    await new Response(verification.stream).json();
+    return;
+  }
+
   const base64 = Buffer.from(json).toString("base64");
   const dataUri = `data:application/json;base64,${base64}`;
 
