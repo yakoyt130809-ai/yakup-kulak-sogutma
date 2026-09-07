@@ -35,7 +35,7 @@ export default function Contact({ site }) {
           </h2>
           <p className="mt-4 text-slate-600">
             7/24 acil servis için hemen arayın ya da aşağıdan mesaj bırakın,
-            WhatsApp'tan size dönelim.
+            WhatsApp&apos;tan size dönelim.
           </p>
         </div>
 
@@ -151,10 +151,10 @@ export default function Contact({ site }) {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-base font-bold text-white transition-colors hover:bg-[#1eb257]"
             >
               <Icon name="whatsapp" className="h-5 w-5" filled />
-              WhatsApp'tan Gönder
+              WhatsApp&apos;tan Gönder
             </button>
             <p className="text-center text-xs text-slate-400">
-              Gönder'e basınca WhatsApp uygulaması açılır ve mesajınız hazır gelir.
+              Gönder&apos;e basınca WhatsApp uygulaması açılır ve mesajınız hazır gelir.
             </p>
           </form>
         </div>

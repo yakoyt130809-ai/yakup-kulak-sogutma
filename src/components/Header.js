@@ -14,13 +14,17 @@ const NAV = [
   { href: "#iletisim", label: "İletişim" },
 ];
 
-export default function Header({ site }) {
+export default function Header({ site, isHome = true }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
   const [indicator, setIndicator] = useState({ left: 0, width: 0, ready: false });
   const linkRefs = useRef([]);
+  const navLinks = NAV.map((item) => ({
+    ...item,
+    href: isHome ? item.href : `/${item.href}`,
+  }));
 
   // Sayfa kaydırıldıkça hangi bölümdeyiz? Menüdeki sıra ile paralel ilerler.
   useEffect(() => {
@@ -34,17 +38,19 @@ export default function Header({ site }) {
       // Menünün hemen altındaki hayali çizgi: hangi bölüm bu çizgiyi geçtiyse o aktif.
       const line = y + 140;
       let idx = 0;
-      NAV.forEach((item, i) => {
-        const el = document.querySelector(item.href);
-        if (!el) return;
-        const top = el.getBoundingClientRect().top + y;
-        if (top <= line) idx = i;
-      });
+      if (isHome) {
+        NAV.forEach((item, i) => {
+          const el = document.querySelector(item.href);
+          if (!el) return;
+          const top = el.getBoundingClientRect().top + y;
+          if (top <= line) idx = i;
+        });
+      }
 
       // Sayfanın en dibindeysek son bölüm (İletişim) aktif kalsın.
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      if (max > 0 && y >= max - 4) idx = NAV.length - 1;
+      if (isHome && max > 0 && y >= max - 4) idx = NAV.length - 1;
 
       setActive(idx);
       setProgress(max > 0 ? Math.min(1, y / max) : 0);
@@ -62,7 +68,7 @@ export default function Header({ site }) {
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [isHome]);
 
   // Kayan vurguyu aktif linkin altına yerleştir.
   useEffect(() => {
@@ -86,7 +92,11 @@ export default function Header({ site }) {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         {/* Marka */}
-        <Brand name={site.businessName} tagline={site.tagline} />
+        <Brand
+          name={site.businessName}
+          tagline={site.tagline}
+          href={isHome ? "#anasayfa" : "/"}
+        />
 
         {/* Masaüstü menü */}
         <nav className="relative hidden items-center gap-1 lg:flex">
@@ -97,7 +107,7 @@ export default function Header({ site }) {
             style={{
               left: indicator.left,
               width: indicator.width,
-              opacity: indicator.ready ? 1 : 0,
+              opacity: isHome && indicator.ready ? 1 : 0,
             }}
           />
           <span
@@ -106,18 +116,18 @@ export default function Header({ site }) {
             style={{
               left: indicator.left + 12,
               width: Math.max(0, indicator.width - 24),
-              opacity: indicator.ready ? 1 : 0,
+              opacity: isHome && indicator.ready ? 1 : 0,
             }}
           />
-          {NAV.map((item, i) => (
+          {navLinks.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
               ref={(el) => (linkRefs.current[i] = el)}
               onClick={() => setActive(i)}
-              aria-current={active === i ? "true" : undefined}
+              aria-current={isHome && active === i ? "true" : undefined}
               className={`relative rounded-lg px-3 py-2 text-sm transition-colors ${
-                active === i
+                isHome && active === i
                   ? "font-semibold text-brand"
                   : "font-medium text-slate-700 hover:text-brand"
               }`}
@@ -158,7 +168,7 @@ export default function Header({ site }) {
       {open && (
         <nav className="border-t border-slate-200 bg-white lg:hidden">
           <div className="mx-auto max-w-7xl px-4 py-2">
-            {NAV.map((item, i) => (
+            {navLinks.map((item, i) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -166,9 +176,9 @@ export default function Header({ site }) {
                   setActive(i);
                   setOpen(false);
                 }}
-                aria-current={active === i ? "true" : undefined}
+                aria-current={isHome && active === i ? "true" : undefined}
                 className={`block border-l-2 px-3 py-3 text-base transition-colors ${
-                  active === i
+                  isHome && active === i
                     ? "border-brand bg-brand/5 font-semibold text-brand"
                     : "border-transparent font-medium text-slate-700 hover:bg-slate-100"
                 }`}

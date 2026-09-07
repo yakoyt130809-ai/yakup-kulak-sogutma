@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Icon from "./Icon";
 import Brand from "./Brand";
+import { getServicePageById } from "@/lib/service-pages";
 
 export default function Footer({ site, services }) {
   const year = new Date().getFullYear();
@@ -20,13 +22,19 @@ export default function Footer({ site, services }) {
             Hizmetler
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
-            {services.slice(0, 6).map((s) => (
-              <li key={s.id}>
-                <a href={`#${s.id}`} className="hover:text-white">
-                  {s.title}
-                </a>
-              </li>
-            ))}
+            {services.slice(0, 6).map((s) => {
+              const servicePage = getServicePageById(s.id);
+              return (
+                <li key={s.id}>
+                  <Link
+                    href={servicePage ? `/hizmetler/${servicePage.slug}` : `/#${s.id}`}
+                    className="hover:text-white"
+                  >
+                    {s.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
