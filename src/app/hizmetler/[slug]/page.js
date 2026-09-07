@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Icon from "@/components/Icon";
 import MobileCTABar from "@/components/MobileCTABar";
 import { getContent } from "@/lib/content";
+import { getFaultGuidesForService } from "@/lib/fault-guides";
 import { SERVICE_PAGES, getServicePage } from "@/lib/service-pages";
 import { SITE_URL } from "@/lib/site";
 import { serviceMessage, waLink } from "@/lib/wa";
@@ -143,6 +144,7 @@ export default async function ServicePage({ params }) {
   const { site, services, serviceAreas } = content;
   const liveService = services.find((item) => item.id === service.id);
   const related = SERVICE_PAGES.filter((item) => item.slug !== service.slug).slice(0, 3);
+  const relatedGuides = getFaultGuidesForService(service.slug);
   const whatsapp = waLink(
     site.whatsapp,
     serviceMessage(site.businessName, service.shortTitle),
@@ -316,6 +318,28 @@ export default async function ServicePage({ params }) {
             </div>
           </section>
 
+          {relatedGuides.length > 0 && (
+            <section className="border-t border-slate-200 bg-white py-16">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                <span className="text-sm font-semibold uppercase tracking-wider text-brand">Sorunu tanıyın</span>
+                <h2 className="mt-2 font-heading text-2xl font-extrabold text-[var(--navy)]">İlgili Arıza Rehberi</h2>
+                <div className="mt-7 grid gap-5 md:grid-cols-2">
+                  {relatedGuides.map((guide) => (
+                    <Link
+                      key={guide.slug}
+                      href={`/ariza-rehberi/${guide.slug}`}
+                      className="group rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:border-brand/40 hover:shadow-sm"
+                    >
+                      <h3 className="font-heading text-lg font-bold text-[var(--navy)] group-hover:text-brand">{guide.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-slate-600">{guide.metaDescription}</p>
+                      <span className="mt-4 inline-flex text-sm font-bold text-brand">Rehberi incele →</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           <section className="border-t border-slate-200 bg-slate-50 py-16">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
               <h2 className="font-heading text-2xl font-extrabold text-[var(--navy)]">Diğer Hizmetlerimiz</h2>
@@ -343,4 +367,3 @@ export default async function ServicePage({ params }) {
     </>
   );
 }
-

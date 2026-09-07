@@ -42,6 +42,12 @@ export default function Footer({ site, services }) {
           >
             Tüm servis bölgeleri →
           </Link>
+          <Link
+            href="/ariza-rehberi"
+            className="mt-3 flex text-sm font-bold text-blue-300 hover:text-white"
+          >
+            Arıza rehberi →
+          </Link>
         </div>
 
         <div>

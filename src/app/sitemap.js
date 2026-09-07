@@ -1,6 +1,7 @@
 import { SITE_URL } from "@/lib/site";
 import { SERVICE_PAGES } from "@/lib/service-pages";
 import { AREA_PAGES } from "@/lib/area-pages";
+import { FAULT_GUIDES } from "@/lib/fault-guides";
 
 export default function sitemap() {
   const home = [
@@ -38,5 +39,17 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...home, ...services, areaHub, ...areas];
+  const guideHub = {
+    url: `${SITE_URL}/ariza-rehberi`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  };
+
+  const guides = FAULT_GUIDES.map((guide) => ({
+    url: `${SITE_URL}/ariza-rehberi/${guide.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...home, ...services, areaHub, ...areas, guideHub, ...guides];
 }
