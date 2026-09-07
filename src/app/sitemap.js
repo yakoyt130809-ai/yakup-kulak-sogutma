@@ -1,5 +1,6 @@
 import { SITE_URL } from "@/lib/site";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { AREA_PAGES } from "@/lib/area-pages";
 
 export default function sitemap() {
   const home = [
@@ -25,5 +26,17 @@ export default function sitemap() {
     images: [`${SITE_URL}${service.image}`],
   }));
 
-  return [...home, ...services];
+  const areaHub = {
+    url: `${SITE_URL}/servis-bolgeleri`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  };
+
+  const areas = AREA_PAGES.map((area) => ({
+    url: `${SITE_URL}/servis-bolgeleri/${area.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...home, ...services, areaHub, ...areas];
 }
