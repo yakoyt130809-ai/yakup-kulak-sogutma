@@ -5,15 +5,18 @@ export default function JsonLd({ content, siteUrl }) {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
+    "@id": `${siteUrl}/#isletme`,
     name: site.businessName,
     description: site.metaDescription,
     telephone: site.phoneRaw,
     url: siteUrl,
-    image: `${siteUrl}/og.png`,
+    image: `${siteUrl}/opengraph-image`,
+    priceRange: "₺₺",
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address,
-      addressLocality: "İstanbul",
+      addressLocality: "Fatih",
+      addressRegion: "İstanbul",
       addressCountry: "TR",
     },
     areaServed: serviceAreas.areas.map((a) => ({
@@ -39,7 +42,13 @@ export default function JsonLd({ content, siteUrl }) {
       name: "Soğutma Tamir Hizmetleri",
       itemListElement: services.map((s) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.title, description: s.description },
+        itemOffered: {
+          "@type": "Service",
+          name: s.title,
+          description: s.description,
+          provider: { "@id": `${siteUrl}/#isletme` },
+          areaServed: "İstanbul",
+        },
       })),
     },
   };

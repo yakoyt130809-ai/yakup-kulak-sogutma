@@ -14,11 +14,10 @@ import FloatingButtons from "@/components/FloatingButtons";
 import MobileCTABar from "@/components/MobileCTABar";
 import RevealProvider from "@/components/RevealProvider";
 import JsonLd from "@/components/JsonLd";
+import { SITE_URL } from "@/lib/site";
 
 // İçerik dosyadan okunduğu için her istekte güncel gösterilsin.
 export const dynamic = "force-dynamic";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export default async function Home() {
   const content = await getContent();

@@ -1,22 +1,19 @@
-import { getContent } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
-export default async function sitemap() {
-  const { services } = await getContent();
-  const now = new Date();
-
-  const base = [
-    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+export default function sitemap() {
+  return [
+    {
+      url: SITE_URL,
+      changeFrequency: "weekly",
+      priority: 1,
+      images: [
+        `${SITE_URL}/portfolio-generated/market-soguk-oda.png`,
+        `${SITE_URL}/portfolio-generated/kasap-teshir-dolabi.png`,
+        `${SITE_URL}/portfolio-generated/pastane-dolabi.png`,
+        `${SITE_URL}/portfolio-generated/sanayi-tipi-buzdolabi.png`,
+        `${SITE_URL}/portfolio-generated/sut-sogutma-tanki.png`,
+        `${SITE_URL}/portfolio-generated/kompresor-degisimi.png`,
+      ],
+    },
   ];
-
-  // Her hizmet ana sayfada bir bölüm (anchor) olduğu için onları da ekliyoruz.
-  const serviceUrls = services.map((s) => ({
-    url: `${SITE_URL}/#${s.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  return [...base, ...serviceUrls];
 }

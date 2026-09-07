@@ -1,6 +1,7 @@
 import { Inter, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { getContent } from "@/lib/content";
+import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,8 +21,6 @@ const playfair = Playfair_Display({
   style: ["italic", "normal"],
   display: "swap",
 });
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export async function generateMetadata() {
   const { site } = await getContent();
@@ -50,6 +49,11 @@ export async function generateMetadata() {
       locale: "tr_TR",
       url: SITE_URL,
       siteName: site.businessName,
+      title: site.metaTitle,
+      description: site.metaDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
       title: site.metaTitle,
       description: site.metaDescription,
     },
