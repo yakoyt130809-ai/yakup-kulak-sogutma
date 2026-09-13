@@ -12,6 +12,12 @@ export default function JsonLd({ content, siteUrl }) {
     url: siteUrl,
     image: `${siteUrl}/opengraph-image`,
     priceRange: "₺₺",
+    founder: {
+      "@type": "Person",
+      "@id": `${siteUrl}/hakkimizda#yakup-kulak`,
+      name: "Yakup Kulak",
+      url: `${siteUrl}/hakkimizda`,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address,

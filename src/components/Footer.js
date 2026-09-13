@@ -48,6 +48,12 @@ export default function Footer({ site, services }) {
           >
             Arıza rehberi →
           </Link>
+          <Link
+            href="/hakkimizda"
+            className="mt-3 flex text-sm font-bold text-blue-300 hover:text-white"
+          >
+            Yakup Kulak · 30 yıllık tecrübe →
+          </Link>
         </div>
 
         <div>

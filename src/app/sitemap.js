@@ -33,6 +33,12 @@ export default function sitemap() {
     priority: 0.8,
   };
 
+  const about = {
+    url: `${SITE_URL}/hakkimizda`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  };
+
   const areas = AREA_PAGES.map((area) => ({
     url: `${SITE_URL}/servis-bolgeleri/${area.slug}`,
     changeFrequency: "monthly",
@@ -51,5 +57,5 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...home, ...services, areaHub, ...areas, guideHub, ...guides];
+  return [...home, about, ...services, areaHub, ...areas, guideHub, ...guides];
 }

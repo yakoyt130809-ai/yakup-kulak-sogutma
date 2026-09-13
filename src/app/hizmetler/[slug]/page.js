@@ -225,6 +225,13 @@ export default async function ServicePage({ params }) {
                     {paragraph}
                   </p>
                 ))}
+                <p className="mt-5 text-base leading-8 text-slate-600">
+                  Bu hizmet, Yakup Kulak&apos;ın ticari soğutma sistemlerindeki
+                  30 yılı aşkın saha tecrübesiyle verilir. {" "}
+                  <Link href="/hakkimizda" className="font-bold text-brand hover:text-brand-dark">
+                    Ustalık tecrübesini ve referansları inceleyin.
+                  </Link>
+                </p>
               </div>
 
               <aside className="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Icon from "./Icon";
 
 export default function About({ about, site }) {
@@ -16,6 +17,12 @@ export default function About({ about, site }) {
               <p key={i}>{p}</p>
             ))}
           </div>
+          <Link
+            href="/hakkimizda"
+            className="mt-7 inline-flex font-bold text-brand hover:text-brand-dark"
+          >
+            Yakup Kulak ve 30 yıllık tecrübeyi inceleyin →
+          </Link>
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8" data-reveal>
