@@ -25,6 +25,13 @@ const TABS = [
   { id: "guvenlik", label: "Güvenlik", icon: "lock" },
 ];
 
+async function fetchClickStats() {
+  const res = await fetch("/api/clicks", { cache: "no-store" });
+  const result = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(result.error || "Sayaçlar okunamadı.");
+  return result.stats;
+}
+
 export default function Admin() {
   const [authed, setAuthed] = useState(null);
   const [password, setPassword] = useState("");
@@ -34,6 +41,21 @@ export default function Admin() {
   const [saving, setSaving] = useState(false);
   const [msg, setMsg] = useState("");
   const [dirty, setDirty] = useState(false);
+  const [clickStats, setClickStats] = useState(null);
+  const [clickStatsError, setClickStatsError] = useState("");
+  const [loadingClickStats, setLoadingClickStats] = useState(true);
+
+  const loadClickStats = useCallback(async () => {
+    setLoadingClickStats(true);
+    setClickStatsError("");
+    try {
+      setClickStats(await fetchClickStats());
+    } catch (error) {
+      setClickStatsError(error.message);
+    } finally {
+      setLoadingClickStats(false);
+    }
+  }, []);
 
   useEffect(() => {
     fetch("/api/session")
@@ -47,6 +69,10 @@ export default function Admin() {
       fetch("/api/content")
         .then((r) => r.json())
         .then(setData);
+      fetchClickStats()
+        .then(setClickStats)
+        .catch((error) => setClickStatsError(error.message))
+        .finally(() => setLoadingClickStats(false));
     }
   }, [authed]);
 
@@ -79,6 +105,7 @@ export default function Admin() {
     await fetch("/api/logout", { method: "POST" });
     setAuthed(false);
     setData(null);
+    setClickStats(null);
     setDirty(false);
   };
 
@@ -330,6 +357,43 @@ export default function Admin() {
                   <Stat label="Hizmet Bölgesi" value={data.serviceAreas.areas.length} icon="mapPin" />
                   <Stat label="S.S.S." value={data.faq.length} icon="clock" />
                 </div>
+              </Card>
+              <Card
+                title="İletişim Butonu Tıklamaları"
+                subtitle="Sayaç özelliği yayına alındıktan sonraki toplam tıklamalar. Kişisel veri tutulmaz."
+                action={
+                  <Btn
+                    variant="ghost"
+                    onClick={loadClickStats}
+                    disabled={loadingClickStats}
+                  >
+                    {loadingClickStats ? "Yenileniyor…" : "Yenile"}
+                  </Btn>
+                }
+              >
+                {clickStatsError && (
+                  <p className="mb-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
+                    {clickStatsError}
+                  </p>
+                )}
+                {clickStats ? (
+                  <>
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      <Stat label="Arama Tıklaması" value={clickStats.phone.toLocaleString("tr-TR")} icon="phone" />
+                      <Stat label="WhatsApp Tıklaması" value={clickStats.whatsapp.toLocaleString("tr-TR")} icon="whatsapp" />
+                      <Stat label="Toplam İletişim" value={clickStats.total.toLocaleString("tr-TR")} icon="gauge" />
+                    </div>
+                    <p className="mt-3 text-xs text-slate-400">
+                      {clickStats.lastClickAt
+                        ? `Son tıklama: ${new Date(clickStats.lastClickAt).toLocaleString("tr-TR")}`
+                        : "Henüz kayıtlı iletişim tıklaması yok."}
+                    </p>
+                  </>
+                ) : (
+                  !clickStatsError && (
+                    <p className="text-sm text-slate-500">Sayaçlar yükleniyor…</p>
+                  )
+                )}
               </Card>
               <Card title="Hızlı İşlemler">
                 <div className="flex flex-wrap gap-2">

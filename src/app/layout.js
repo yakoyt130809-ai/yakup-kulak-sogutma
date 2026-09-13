@@ -1,5 +1,6 @@
 import { Inter, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import ClickTracker from "@/components/ClickTracker";
 import { getContent } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
 
@@ -78,6 +79,7 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${montserrat.variable} ${playfair.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-white text-[var(--ink)]">
+        <ClickTracker />
         {children}
       </body>
     </html>

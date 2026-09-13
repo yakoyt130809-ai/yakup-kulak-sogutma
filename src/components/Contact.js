@@ -120,6 +120,7 @@ export default function Contact({ site }) {
           {/* Form */}
           <form
             onSubmit={submit}
+            data-contact-action="whatsapp"
             className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
           >
             <h3 className="font-heading text-lg font-bold text-[var(--navy)]">
