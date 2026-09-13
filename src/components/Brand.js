@@ -1,4 +1,4 @@
-import Icon from "./Icon";
+import LogoMark from "./LogoMark";
 
 /**
  * Marka kilidi (logo + kelime işareti).
@@ -20,16 +20,9 @@ export default function Brand({ name, tagline, variant = "light", href = "#anasa
       className="group flex items-center gap-2.5"
       aria-label={`${name} — ana sayfa`}
     >
-      {/* Kar tanesi amblemi */}
-      <span className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-[var(--navy)] shadow-md shadow-brand/25 transition-transform duration-500 group-hover:scale-105 sm:h-11 sm:w-11">
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 rounded-xl bg-white/0 transition-colors duration-500 group-hover:bg-white/10"
-        />
-        <Icon
-          name="snowflake"
-          className="h-5 w-5 text-white transition-transform duration-[900ms] ease-out group-hover:rotate-90 sm:h-6 sm:w-6"
-        />
+      {/* SoğukServis'e özel S hava akışı + buz kristali amblemi */}
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl shadow-md shadow-brand/25 transition-transform duration-500 group-hover:-rotate-2 group-hover:scale-105 sm:h-11 sm:w-11">
+        <LogoMark className="h-full w-full" idSuffix={dark ? "footer" : "header"} />
       </span>
 
       <span className="flex flex-col leading-none">
