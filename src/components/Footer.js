@@ -30,7 +30,7 @@ export default function Footer({ site, services }) {
                     href={servicePage ? `/hizmetler/${servicePage.slug}` : `/#${s.id}`}
                     className="hover:text-white"
                   >
-                    {s.title}
+                    {servicePage?.shortTitle || s.title}
                   </Link>
                 </li>
               );

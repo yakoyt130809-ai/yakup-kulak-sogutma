@@ -186,17 +186,17 @@ export const SERVICE_PAGES = [
   {
     id: "sanayi-tipi-buzdolabi-tamiri",
     slug: "sanayi-tipi-buzdolabi-tamiri",
-    title: "Sanayi Tipi Buzdolabı Tamiri İstanbul",
-    shortTitle: "Sanayi Tipi Buzdolabı Tamiri",
+    title: "Sanayi Tipi Dolap ve Buzdolabı Tamiri İstanbul",
+    shortTitle: "Sanayi Tipi Dolap Tamiri",
     metaDescription:
-      "İstanbul sanayi tipi buzdolabı tamiri. Restoran, otel ve işletmelerde dik veya tezgâh tipi dolap arızalarına 7/24 yerinde servis.",
+      "İstanbul'da sanayi tipi dolap ve buzdolabı tamiri. Restoran, otel ve işletmelerde dik, tezgâh tipi ve hazırlık dolaplarına 7/24 yerinde servis.",
     image: "/portfolio-generated/sanayi-tipi-buzdolabi.png",
-    imageAlt: "Sanayi tipi buzdolabı tamiri ve teknik servis",
+    imageAlt: "İstanbul sanayi tipi dolap ve buzdolabı tamiri",
     lead:
-      "Restoran, otel ve üretim mutfaklarındaki sanayi tipi dolaplar yoğun kullanım altında çalışır. Arızayı hızlıca tespit ederek işletmenin kesinti süresini azaltmayı amaçlıyoruz.",
+      "Restoran, otel ve üretim mutfaklarındaki sanayi tipi dolaplar yoğun kullanım altında çalışır. Sanayi tipi dolap tamirinde arızayı ölçümle belirleyerek işletmenin kesinti süresini azaltmayı amaçlıyoruz.",
     details: [
-      "Dik tip, tezgâh tipi ve hazırlık dolaplarında soğutmama sorunu; kirli kondenserden kompresör arızasına kadar farklı nedenlerden oluşabilir. Elektrik ve soğutma devresi birlikte ölçülmeden doğru karar verilemez.",
-      "Serviste dolap sıcaklığı, fanlar, kapı contaları, sensörler, kompresör akımı ve gaz basıncı kontrol edilir. Uygun onarım seçeneği ve fiyatı onaydan önce paylaşılır.",
+      "Dik tip, tezgâh tipi, tezgâh altı ve hazırlık dolaplarında soğutmama sorunu; kirli kondenserden kompresör arızasına kadar farklı nedenlerden oluşabilir. Elektrik ve soğutma devresi birlikte ölçülmeden doğru karar verilemez.",
+      "Sanayi tipi buzdolabı servisinde dolap sıcaklığı, fanlar, kapı contaları, sensörler, kompresör akımı ve gaz basıncı kontrol edilir. Uygun onarım seçeneği ve fiyatı onaydan önce paylaşılır.",
     ],
     issues: [
       "Dolabın hiç çalışmaması veya geç devreye girmesi",
@@ -222,6 +222,10 @@ export const SERVICE_PAGES = [
       {
         q: "Her marka sanayi tipi dolaba bakıyor musunuz?",
         a: "Marka bağımsız arıza tespiti yapıyoruz. Parça bulunabilirliği ve cihazın teknik yapısına göre uygulanabilecek çözüm servis sırasında açıklanır.",
+      },
+      {
+        q: "Sanayi tipi dolap tamiri ne zaman gerekir?",
+        a: "Dolap hedef sıcaklığa ulaşmıyor, sürekli çalışıyor, yoğun buzlanıyor, su akıtıyor veya olağan dışı ses çıkarıyorsa ölçümlü arıza tespiti gerekir. Ürün sıcaklığı yükseliyorsa ürünleri çalışan başka bir soğutucuya alın.",
       },
       {
         q: "Dolabın fişini çekmeli miyim?",
@@ -330,4 +334,3 @@ export function getServicePage(slug) {
 export function getServicePageById(id) {
   return SERVICE_PAGES.find((service) => service.id === id);
 }
-

@@ -45,7 +45,7 @@ export default function Services({ services, site }) {
                       href={`/hizmetler/${servicePage.slug}`}
                       className="text-sm font-bold text-brand hover:text-brand-dark"
                     >
-                      Hizmeti incele →
+                      {servicePage.shortTitle} →
                     </Link>
                   )}
                   <a

@@ -50,7 +50,7 @@ export const FAULT_GUIDES = [
       "Elektrik bölmesine veya basınçlı soğutma devresine müdahale etmek",
     ],
     serviceSlug: "sanayi-tipi-buzdolabi-tamiri",
-    serviceTitle: "Sanayi Tipi Buzdolabı Tamiri",
+    serviceTitle: "Sanayi Tipi Dolap Tamiri",
     relatedSlugs: ["soguk-oda-buzlanmasi-neden-olur", "sogutma-kompresoru-arizasi-belirtileri"],
     faq: [
       {
