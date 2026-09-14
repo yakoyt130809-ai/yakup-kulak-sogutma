@@ -69,6 +69,22 @@ export async function generateMetadata() {
         "msvalidate.01": "D2A8BED910293BA1E4A1833E63FE1919",
       },
     },
+    icons: {
+      icon: [
+        {
+          url: "/sogukservis-logo.png",
+          type: "image/png",
+          sizes: "96x96",
+        },
+      ],
+      apple: [
+        {
+          url: "/sogukservis-apple-icon.png",
+          type: "image/png",
+          sizes: "180x180",
+        },
+      ],
+    },
   };
 }
 

@@ -1,10 +1,21 @@
 import fallbackData from "../../data/content.json";
 import { getCloudinary, getCloudName } from "@/lib/cloudinary";
+import { HOME_META_TITLE, LEGACY_HOME_META_TITLE } from "@/lib/site";
 
 const CONTENT_PUBLIC_ID = "site-content.json";
 
 function contentUrl() {
   return `https://res.cloudinary.com/${getCloudName()}/raw/upload/${CONTENT_PUBLIC_ID}`;
+}
+
+// Cloudinary'deki eski kişi odaklı başlığı, hizmet odaklı güncel başlığa geçirir.
+// Panelden daha sonra farklı bir başlık yazılırsa kullanıcının tercihi korunur.
+function normalizeSeoContent(data) {
+  if (data?.site?.metaTitle !== LEGACY_HOME_META_TITLE) return data;
+  return {
+    ...data,
+    site: { ...data.site, metaTitle: HOME_META_TITLE },
+  };
 }
 
 export async function getContent() {
@@ -17,10 +28,10 @@ export async function getContent() {
       console.error("Cloudinary content okunamadı, status:", res.status, res.statusText);
       return fallbackData;
     }
-    return await res.json();
+    return normalizeSeoContent(await res.json());
   } catch (err) {
     console.error("Cloudinary okuma hatası, yedek veri kullanılıyor:", err);
-    return fallbackData;
+    return normalizeSeoContent(fallbackData);
   }
 }
 
