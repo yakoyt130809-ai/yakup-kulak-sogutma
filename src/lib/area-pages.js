@@ -1,3 +1,5 @@
+import { ADDITIONAL_AREA_PAGES } from "@/lib/additional-area-pages";
+
 export const AREA_PAGES = [
   {
     slug: "fatih",
@@ -134,6 +136,7 @@ export const AREA_PAGES = [
       { q: "Camı buğulanan teşhir dolabında sorun nedir?", a: "Ortam nemi, hava perdesi, fan, evaporatör buzlanması veya cam ısıtma sistemi etkili olabilir. Kesin neden yerinde kontrolle belirlenir." },
     ],
   },
+  ...ADDITIONAL_AREA_PAGES,
 ];
 
 export function getAreaPage(slug) {
@@ -143,4 +146,3 @@ export function getAreaPage(slug) {
 export function getAreaPageByName(name) {
   return AREA_PAGES.find((area) => area.name === name);
 }
-

@@ -127,7 +127,11 @@ export default async function AreaPage({ params }) {
   const content = await getContent();
   const { site, services } = content;
   const whatsapp = waLink(site.whatsapp, generalMessage(site.businessName));
-  const relatedAreas = AREA_PAGES.filter((item) => item.slug !== area.slug);
+  const areaIndex = AREA_PAGES.findIndex((item) => item.slug === area.slug);
+  const relatedAreas = [
+    ...AREA_PAGES.slice(areaIndex + 1),
+    ...AREA_PAGES.slice(0, areaIndex),
+  ].slice(0, 8);
 
   return (
     <>
