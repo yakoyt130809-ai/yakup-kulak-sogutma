@@ -1,5 +1,51 @@
 export const SERVICE_PAGES = [
   {
+    id: "market-dolabi-tamiri",
+    slug: "market-dolabi-tamiri",
+    title: "Market Dolabı Tamiri İstanbul",
+    shortTitle: "Market Dolabı Tamiri",
+    metaDescription:
+      "İstanbul market dolabı tamiri ve teknik servisi. Sütlük, reyon, şarküteri ve içecek dolaplarında soğutmama, buzlanma, fan ve kompresör arızalarına yerinde müdahale.",
+    image: "/portfolio-generated/market-soguk-oda.png",
+    imageAlt: "İstanbul market dolabı tamiri ve yerinde teknik servis",
+    lead:
+      "Market dolaplarındaki sıcaklık artışı ürün kaybına ve satışın aksamasına yol açabilir. Sütlük, şarküteri, içecek ve reyon dolaplarında arızanın kaynağını yerinde ölçerek kalıcı onarıma odaklanıyoruz.",
+    details: [
+      "Market dolabının çalışmasına rağmen yeterince soğutmaması; fan, evaporatör buzlanması, kirli kondenser, sensör, kapı-perde kullanımı veya soğutma devresi kaynaklı olabilir. Ölçüm yapmadan yalnızca gaz eklemek ya da parça değiştirmek doğru teşhis sağlamaz.",
+      "Servis sırasında raf sıcaklıkları, hava dolaşımı, fanlar, defrost sistemi, kondenser, kompresör akımı ve gaz basıncı birlikte kontrol edilir. Gerekli işlem ve parça bilgisi açıklanıp onay alındıktan sonra onarıma başlanır.",
+    ],
+    issues: [
+      "Market dolabının geç veya yetersiz soğutması",
+      "Üst ve alt raflar arasında sıcaklık farkı oluşması",
+      "Evaporatör buzlanması ve hava akışının kesilmesi",
+      "Fan motorunun ses yapması veya çalışmaması",
+      "Sensör, termostat ve dijital kontrol arızaları",
+      "Gaz kaçağı ve kompresör performans kaybı",
+    ],
+    scope: [
+      "Dolap ve raf sıcaklıklarının ölçülmesi",
+      "Fan, hava kanalı ve defrost kontrolü",
+      "Sensör, termostat ve kontrol cihazı testi",
+      "Kondenser ve evaporatör bakımı",
+      "Kaçak tespiti, kompresör ve gaz devresi onarımı",
+      "Onarım sonrası sıcaklık ve çalışma doğrulaması",
+    ],
+    faq: [
+      {
+        q: "Market dolabı çalışıyor ama neden soğutmuyor?",
+        a: "Fan, kondenser, evaporatör buzlanması, sensör, gaz kaçağı veya kompresör performansı kontrol edilmelidir. Kesin neden sıcaklık, basınç ve akım ölçümleriyle belirlenir.",
+      },
+      {
+        q: "Sütlük ve şarküteri dolabı markette yerinde tamir edilir mi?",
+        a: "Arızaların büyük bölümü markette yerinde tespit ve onarım kapsamındadır. Atölye işlemi gerekirse cihazın durumuna göre önceden bilgi verilir.",
+      },
+      {
+        q: "Market dolabı buzlanıyorsa kapatmalı mıyım?",
+        a: "Ürün sıcaklığını koruyacak başka bir dolap varsa ürünleri taşıyın. Buzu kesici aletle kırmayın ve cihazı art arda açıp kapatmayın; defrost, sensör ve drenaj sistemi kontrol edilmelidir.",
+      },
+    ],
+  },
+  {
     id: "soguk-oda-tamiri",
     slug: "soguk-oda-tamiri",
     title: "Soğuk Oda Tamiri İstanbul",

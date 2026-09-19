@@ -11,11 +11,41 @@ function contentUrl() {
 // Cloudinary'deki eski kişi odaklı başlığı, hizmet odaklı güncel başlığa geçirir.
 // Panelden daha sonra farklı bir başlık yazılırsa kullanıcının tercihi korunur.
 function normalizeSeoContent(data) {
-  if (data?.site?.metaTitle !== LEGACY_HOME_META_TITLE) return data;
-  return {
-    ...data,
-    site: { ...data.site, metaTitle: HOME_META_TITLE },
-  };
+  if (!data || typeof data !== "object") return fallbackData;
+
+  let normalized = data;
+
+  if (normalized.site?.metaTitle === LEGACY_HOME_META_TITLE) {
+    normalized = {
+      ...normalized,
+      site: { ...normalized.site, metaTitle: HOME_META_TITLE },
+    };
+  }
+
+  const currentServices = Array.isArray(normalized.services) ? normalized.services : [];
+  const missingServices = fallbackData.services.filter(
+    (fallbackService) => !currentServices.some((service) => service.id === fallbackService.id),
+  );
+  if (missingServices.length > 0) {
+    normalized = {
+      ...normalized,
+      services: [...missingServices, ...currentServices],
+    };
+  }
+
+  const legacyAboutParagraph =
+    "Yakup Kulak olarak 30 yılı aşkın süredir İstanbul'da ticari ve sanayi tipi soğutma sistemlerinin kurulumu, tamiri ve bakımını yapıyoruz. Soğuk oda, kasap teşhir dolabı, pastane dolabı, süt soğutma tankı ve sanayi tipi buzdolaplarında marka fark etmeksizin her arızaya çözüm üretiyoruz.";
+  if (normalized.about?.paragraphs?.[0] === legacyAboutParagraph) {
+    normalized = {
+      ...normalized,
+      about: {
+        ...normalized.about,
+        paragraphs: [fallbackData.about.paragraphs[0], ...normalized.about.paragraphs.slice(1)],
+      },
+    };
+  }
+
+  return normalized;
 }
 
 export async function getContent() {

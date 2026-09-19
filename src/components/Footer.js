@@ -52,7 +52,7 @@ export default function Footer({ site, services }) {
             href="/hakkimizda"
             className="mt-3 flex text-sm font-bold text-blue-300 hover:text-white"
           >
-            Yakup Kulak · 30 yıllık tecrübe →
+            30 yıllık ticari soğutma tecrübesi →
           </Link>
         </div>
 

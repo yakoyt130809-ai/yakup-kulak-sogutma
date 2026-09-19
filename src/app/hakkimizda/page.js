@@ -12,12 +12,12 @@ import { SITE_URL } from "@/lib/site";
 export const dynamic = "force-dynamic";
 
 const PAGE_URL = `${SITE_URL}/hakkimizda`;
-const PAGE_TITLE = "Yakup Kulak | 30 Yıllık Ticari Soğutma Tecrübesi";
+const PAGE_TITLE = "İstanbul Ticari Soğutma Ustası | 30 Yıllık Tecrübe";
 const PAGE_DESCRIPTION =
-  "Yakup Kulak'ın İstanbul'da ticari soğutma, soğuk oda ve sanayi tipi buzdolabı servisindeki 30 yılı aşkın saha tecrübesini ve referanslarını inceleyin.";
+  "İstanbul'da soğuk oda, market dolabı ve sanayi tipi buzdolabı tamirinde 30 yılı aşkın saha tecrübesini, çalışma yaklaşımını ve referansları inceleyin.";
 
 export const metadata = {
-  title: "Yakup Kulak - 30 Yıllık Ticari Soğutma Tecrübesi",
+  title: "İstanbul Ticari Soğutma Ustası - 30 Yıllık Tecrübe",
   description: PAGE_DESCRIPTION,
   alternates: { canonical: PAGE_URL },
   openGraph: {
@@ -133,7 +133,7 @@ export default async function AboutPage() {
               </Link>
               <span aria-hidden="true">/</span>
               <span aria-current="page" className="text-white">
-                Yakup Kulak
+                30+ Yıllık Saha Tecrübesi
               </span>
             </nav>
 
@@ -141,7 +141,7 @@ export default async function AboutPage() {
               30 yılı aşkın saha tecrübesi
             </span>
             <h1 className="mt-5 max-w-4xl font-heading text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-              Yakup Kulak: Ticari Soğutma Ustası
+              İstanbul Ticari Soğutma Ustası ve Servis Tecrübesi
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-blue-100 sm:text-lg">
               İstanbul&apos;da soğuk oda, sanayi tipi buzdolabı ve ticari

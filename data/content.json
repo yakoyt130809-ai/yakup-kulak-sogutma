@@ -63,7 +63,7 @@
     "title": "Hakkımızda",
     "lead": "30 yılı aşkın tecrübeyle İstanbul'un güvenilir soğutma ustası.",
     "paragraphs": [
-      "Yakup Kulak olarak 30 yılı aşkın süredir İstanbul'da ticari ve sanayi tipi soğutma sistemlerinin kurulumu, tamiri ve bakımını yapıyoruz. Soğuk oda, kasap teşhir dolabı, pastane dolabı, süt soğutma tankı ve sanayi tipi buzdolaplarında marka fark etmeksizin her arızaya çözüm üretiyoruz.",
+      "İstanbul'da 30 yılı aşkın saha tecrübesiyle ticari ve sanayi tipi soğutma sistemlerinin tamir ve bakımını yapıyoruz. Soğuk oda, market, kasap, pastane, sütlük ve sanayi tipi buzdolaplarında marka fark etmeksizin ölçümlü arıza tespiti ve yerinde servis sağlıyoruz.",
       "İşletmenizin ürünleri bozulmadan, en kısa sürede müdahale etmek için İstanbul'un hem Avrupa hem Anadolu yakasında 7/24 acil servis veriyoruz. Orijinal yedek parça, faturalı ve garantili işçilikle çalışıyoruz.",
       "Amacımız; market, kasap, pastane, restoran ve gıda işletmelerinin soğutma sistemlerini kesintisiz çalışır halde tutmak ve size güvenle çözüm ortağı olmaktır."
     ],
@@ -77,6 +77,12 @@
     ]
   },
   "services": [
+    {
+      "id": "market-dolabi-tamiri",
+      "title": "Market Dolabı Tamiri",
+      "icon": "fridge",
+      "description": "Sütlük, şarküteri, içecek ve reyon dolaplarında soğutmama, buzlanma, fan, sensör, gaz kaçağı ve kompresör arızalarına İstanbul genelinde yerinde servis."
+    },
     {
       "id": "soguk-oda-tamiri",
       "title": "Soğuk Oda Tamiri",

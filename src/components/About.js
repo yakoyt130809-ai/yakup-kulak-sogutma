@@ -21,7 +21,7 @@ export default function About({ about, site }) {
             href="/hakkimizda"
             className="mt-7 inline-flex font-bold text-brand hover:text-brand-dark"
           >
-            Yakup Kulak ve 30 yıllık tecrübeyi inceleyin →
+            Ticari soğutma tecrübesi ve referanslar →
           </Link>
         </div>
 
