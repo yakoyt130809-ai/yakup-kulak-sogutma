@@ -1,4 +1,6 @@
 // Google'ın işletmeyi ve hizmetleri anlaması için yapısal veri (Schema.org).
+import { getServicePageById } from "@/lib/service-pages";
+
 export default function JsonLd({ content, siteUrl }) {
   const { site, services, faq, serviceAreas } = content;
 
@@ -12,6 +14,17 @@ export default function JsonLd({ content, siteUrl }) {
     url: siteUrl,
     image: `${siteUrl}/opengraph-image`,
     priceRange: "₺₺",
+    knowsAbout: [
+      "Ticari soğutma",
+      "Endüstriyel soğutma",
+      "Sanayi tipi buzdolabı tamiri",
+      "Market dolabı tamiri",
+      "Soğuk oda tamiri",
+      "Sütlük dolabı tamiri",
+      "Kasap dolabı tamiri",
+      "Pastane dolabı tamiri",
+      "Soğutma kompresörü",
+    ],
     founder: {
       "@type": "Person",
       "@id": `${siteUrl}/hakkimizda#yakup-kulak`,
@@ -46,16 +59,20 @@ export default function JsonLd({ content, siteUrl }) {
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Soğutma Tamir Hizmetleri",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.title,
-          description: s.description,
-          provider: { "@id": `${siteUrl}/#isletme` },
-          areaServed: "İstanbul",
-        },
-      })),
+      itemListElement: services.map((s) => {
+        const servicePage = getServicePageById(s.id);
+        return {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: s.title,
+            description: s.description,
+            url: servicePage ? `${siteUrl}/hizmetler/${servicePage.slug}` : siteUrl,
+            provider: { "@id": `${siteUrl}/#isletme` },
+            areaServed: "İstanbul",
+          },
+        };
+      }),
     },
   };
 
@@ -69,6 +86,18 @@ export default function JsonLd({ content, siteUrl }) {
     })),
   };
 
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    url: siteUrl,
+    name: site.businessName,
+    alternateName: "İstanbul Ticari Soğutma Servisi",
+    description: site.metaDescription,
+    inLanguage: "tr-TR",
+    publisher: { "@id": `${siteUrl}/#isletme` },
+  };
+
   return (
     <>
       <script
@@ -78,6 +107,10 @@ export default function JsonLd({ content, siteUrl }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
       />
     </>
   );

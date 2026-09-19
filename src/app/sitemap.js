@@ -27,6 +27,12 @@ export default function sitemap() {
     images: [`${SITE_URL}${service.image}`],
   }));
 
+  const serviceHub = {
+    url: `${SITE_URL}/hizmetler`,
+    changeFrequency: "monthly",
+    priority: 0.9,
+  };
+
   const areaHub = {
     url: `${SITE_URL}/servis-bolgeleri`,
     changeFrequency: "monthly",
@@ -57,5 +63,5 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...home, about, ...services, areaHub, ...areas, guideHub, ...guides];
+  return [...home, about, serviceHub, ...services, areaHub, ...areas, guideHub, ...guides];
 }

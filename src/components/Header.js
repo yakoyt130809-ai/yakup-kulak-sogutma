@@ -23,7 +23,12 @@ export default function Header({ site, isHome = true }) {
   const linkRefs = useRef([]);
   const navLinks = NAV.map((item) => ({
     ...item,
-    href: isHome ? item.href : `/${item.href}`,
+    href:
+      !isHome && item.href === "#hizmetler"
+        ? "/hizmetler"
+        : isHome
+          ? item.href
+          : `/${item.href}`,
   }));
 
   // Sayfa kaydırıldıkça hangi bölümdeyiz? Menüdeki sıra ile paralel ilerler.

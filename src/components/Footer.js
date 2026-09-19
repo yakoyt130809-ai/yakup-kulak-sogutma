@@ -37,8 +37,14 @@ export default function Footer({ site, services }) {
             })}
           </ul>
           <Link
-            href="/servis-bolgeleri"
+            href="/hizmetler"
             className="mt-5 inline-flex text-sm font-bold text-blue-300 hover:text-white"
+          >
+            Tüm tamir hizmetleri →
+          </Link>
+          <Link
+            href="/servis-bolgeleri"
+            className="mt-3 flex text-sm font-bold text-blue-300 hover:text-white"
           >
             Tüm servis bölgeleri →
           </Link>

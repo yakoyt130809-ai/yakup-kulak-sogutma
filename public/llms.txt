@@ -1,0 +1,34 @@
+# SoğukServis
+
+> İstanbul'da ticari ve endüstriyel soğutma sistemleri için yerinde arıza tespiti, tamir ve periyodik bakım hizmeti.
+
+## Temel bilgiler
+
+- Web sitesi: https://www.sogukdolaptamiri.com
+- Telefon: 0535 580 14 93
+- Hizmet alanı: İstanbul Avrupa ve Anadolu Yakası
+- Çalışma saatleri: 7/24 servis talebi
+- Deneyim: 30 yılı aşkın ticari soğutma saha tecrübesi
+- Adres: Topkapı Türkiye İşçiler Merkezi (TİM), Fatih / İstanbul
+
+## Hizmetler
+
+- Market dolabı tamiri: https://www.sogukdolaptamiri.com/hizmetler/market-dolabi-tamiri
+- Soğuk oda tamiri: https://www.sogukdolaptamiri.com/hizmetler/soguk-oda-tamiri
+- Sütlük dolabı tamiri: https://www.sogukdolaptamiri.com/hizmetler/sutluk-dolabi-tamiri
+- Kasap dolabı tamiri: https://www.sogukdolaptamiri.com/hizmetler/kasap-dolabi-tamiri
+- Pastane dolabı tamiri: https://www.sogukdolaptamiri.com/hizmetler/pastane-dolabi-tamiri
+- Sanayi tipi buzdolabı tamiri: https://www.sogukdolaptamiri.com/hizmetler/sanayi-tipi-buzdolabi-tamiri
+- Kompresör değişimi ve gaz dolumu: https://www.sogukdolaptamiri.com/hizmetler/kompresor-degisimi-gaz-dolumu
+- Ticari soğutma periyodik bakımı: https://www.sogukdolaptamiri.com/hizmetler/ticari-sogutma-periyodik-bakim
+
+## Yardımcı kaynaklar
+
+- Tüm hizmetler: https://www.sogukdolaptamiri.com/hizmetler
+- Servis bölgeleri: https://www.sogukdolaptamiri.com/servis-bolgeleri
+- Arıza rehberi: https://www.sogukdolaptamiri.com/ariza-rehberi
+- Tecrübe ve referanslar: https://www.sogukdolaptamiri.com/hakkimizda
+
+## Kapsam
+
+SoğukServis; market, restoran, kasap, şarküteri, pastane, otel, profesyonel mutfak ve gıda depolarındaki soğuk oda, sütlük, reyon, teşhir, dik tip ve tezgâh tipi ticari dolaplara servis verir. Fan, sensör, termostat, defrost, drenaj, elektrik panosu, gaz kaçağı ve kompresör arızaları ölçümle değerlendirilir.

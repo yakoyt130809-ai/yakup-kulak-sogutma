@@ -99,7 +99,7 @@ export const SERVICE_PAGES = [
     metaDescription:
       "İstanbul sütlük ve market dolabı tamiri. Soğutmama, buzlanma, fan, sensör, termostat ve gaz kaçağı arızalarına 7/24 yerinde servis.",
     image: "/portfolio-generated/sut-sogutma-tanki.png",
-    imageAlt: "Sütlük ve süt soğutma dolabı tamiri",
+    imageAlt: "İstanbul sütlük ve süt soğutma dolabı tamiri",
     lead:
       "Market ve şarküteri sütlüklerinde rafların eşit sıcaklıkta kalması, ürün güvenliği için kritiktir. Hava dolaşımından soğutma devresine kadar sistemi bütün olarak kontrol ediyoruz.",
     details: [
@@ -191,7 +191,7 @@ export const SERVICE_PAGES = [
     metaDescription:
       "İstanbul pasta ve pastane teşhir dolabı tamiri. Sıcaklık, nem, fan, sensör, buzlanma ve kompresör sorunlarına 7/24 yerinde servis.",
     image: "/portfolio-generated/pastane-dolabi.png",
-    imageAlt: "Pasta ve pastane teşhir dolabı tamiri",
+    imageAlt: "İstanbul pasta ve pastane teşhir dolabı tamiri",
     lead:
       "Pasta teşhir dolaplarında doğru sıcaklık kadar dengeli hava dolaşımı ve nem de önemlidir. Ürünleri kurutmadan ve vitrinin görünümünü bozmadan çalışan sistemi hedefliyoruz.",
     details: [
@@ -287,7 +287,7 @@ export const SERVICE_PAGES = [
     metaDescription:
       "İstanbul ticari soğutma sistemlerinde kompresör değişimi, gaz kaçağı tespiti, vakum ve uygun gaz dolumu. Ölçümlü ve garantili servis.",
     image: "/portfolio-generated/kompresor-degisimi.png",
-    imageAlt: "Soğutma kompresörü değişimi ve gaz dolumu",
+    imageAlt: "İstanbul ticari soğutma kompresörü değişimi ve gaz dolumu",
     lead:
       "Kompresör ve soğutucu gaz işlemleri doğru teşhis, uygun ekipman ve ölçüm gerektirir. Arızanın nedenini gidermeden yapılan parça veya gaz işlemi kalıcı sonuç vermez.",
     details: [
@@ -333,7 +333,7 @@ export const SERVICE_PAGES = [
     metaDescription:
       "İstanbul'da soğuk oda ve ticari soğutma sistemleri için periyodik bakım. Arıza riskini, enerji kaybını ve plansız duruşları azaltın.",
     image: "/portfolio-generated/market-soguk-oda.png",
-    imageAlt: "Ticari soğutma sistemi periyodik bakım çalışması",
+    imageAlt: "İstanbul ticari ve endüstriyel soğutma sistemi periyodik bakımı",
     lead:
       "Periyodik bakım, arıza oluşmadan önce performans kaybını fark etmeyi sağlar. İşletmenin cihaz sayısı ve çalışma düzenine göre uygulanabilir bir kontrol planı oluşturuyoruz.",
     details: [
@@ -373,10 +373,129 @@ export const SERVICE_PAGES = [
   },
 ];
 
+const SERVICE_PROBLEM_SOLUTIONS = {
+  "market-dolabi-tamiri": [
+    {
+      title: "Market dolabı soğutmuyor veya raflar eşit soğumuyor",
+      body: "Sütlük, şarküteri ve reyon dolaplarında ürün yerleşimi hava kanalını kapatabilir; fan, evaporatör buzlanması veya sensör arızası da raf sıcaklıklarını bozabilir. Market dolabı tamirinde farklı raflardan sıcaklık ölçülür, hava dolaşımı ve defrost sistemi kontrol edilerek arızanın kaynağı giderilir.",
+    },
+    {
+      title: "Market dolabı buzlanıyor veya su akıtıyor",
+      body: "Yoğun buzlanma ve su birikmesi çoğunlukla defrost, drenaj, kapı-perde kullanımı ya da sensör sorunlarıyla ilişkilidir. Buz yalnızca eritilmez; tekrar oluşmasını önlemek için tahliye hattı, rezistans, sensör ve kontrol ayarları birlikte incelenir.",
+    },
+    {
+      title: "Şarküteri ve içecek dolabında kompresör arızası",
+      body: "Kompresörün sürekli çalışması veya devreye girmemesi, doğrudan kompresör değişimi gerektiği anlamına gelmez. Röle, kontaktör, fan, kondenser ve gaz basıncı ölçülerek market dolabı servisinde doğru onarım seçilir.",
+    },
+  ],
+  "soguk-oda-tamiri": [
+    {
+      title: "Soğuk oda istenen dereceye inmiyor",
+      body: "Soğuk hava deposunda sıcaklık yükselmesi; gaz kaçağı, kirli kondenser, fan, sensör, kapı contası veya kompresör performansından kaynaklanabilir. Soğuk oda tamirinde basınç, akım ve sıcaklık değerleri birlikte ölçülerek geçici müdahale yerine arızanın kaynağı onarılır.",
+    },
+    {
+      title: "Soğuk oda evaporatörü buz tutuyor",
+      body: "Evaporatörü kaplayan buz hava akışını keser ve kompresörün daha uzun çalışmasına neden olur. Defrost rezistansı, sensör, fan, drenaj ve kapıdan nem girişi kontrol edilerek buzlanmanın tekrarlaması önlenir.",
+    },
+    {
+      title: "Soğuk hava deposu elektrik panosu arızası",
+      body: "Kontaktör, termik, sigorta, kontrol cihazı ve bağlantı sorunları kompresör ile fanların devreye girmesini engelleyebilir. Pano ve soğutma devresi birlikte test edilir; güvenli olmayan köprüleme veya geçici bağlantı yapılmaz.",
+    },
+  ],
+  "sutluk-dolabi-tamiri": [
+    {
+      title: "Sütlük dolabının üst rafları sıcak kalıyor",
+      body: "Üst ve alt raf arasındaki sıcaklık farkı genellikle fan, hava kanalı, ürün yerleşimi veya evaporatör buzlanmasıyla ilgilidir. Sütlük dolabı tamirinde raf sıcaklıkları ayrı ayrı ölçülür ve soğuk havanın dolap boyunca dengeli dolaşması sağlanır.",
+    },
+    {
+      title: "Süt soğutma dolabı sürekli çalışıyor",
+      body: "Kirli kondenser, kapı perdesi kaçağı, yanlış sensör değeri veya gaz devresi sorunu kompresörün durmadan çalışmasına yol açabilir. Elektrik tüketimini ve ürün riskini artıran neden ölçülerek uygun bakım ya da onarım uygulanır.",
+    },
+    {
+      title: "Sütlük dolabında fan ve termostat arızası",
+      body: "Fan sesi, düzensiz çalışma veya ekrandaki sıcaklığın gerçek raf sıcaklığından farklı olması fan, sensör ve termostat kontrolünü gerektirir. Parça değişiminden önce besleme ve kontrol sinyalleri test edilir.",
+    },
+  ],
+  "kasap-dolabi-tamiri": [
+    {
+      title: "Kasap dolabı yeterince soğutmuyor",
+      body: "Et teşhir dolabında sıcaklık artışı ürün güvenliğini doğrudan etkiler. Kasap dolabı tamirinde raf sıcaklığı, fan, evaporatör, kondenser, sensör, gaz basıncı ve kompresör akımı ölçülerek arıza kaynağı belirlenir.",
+    },
+    {
+      title: "Kasap teşhir dolabının camları buğulanıyor",
+      body: "Cam buğulanması yalnızca cam rezistansından oluşmaz; ortam nemi, hava perdesi, fan ve evaporatör buzlanması da etkili olabilir. Hava dolaşımı ve yoğuşma sistemi birlikte kontrol edilerek görünümü bozan sorun giderilir.",
+    },
+    {
+      title: "Şarküteri dolabında su ve buzlanma sorunu",
+      body: "Drenaj tıkanıklığı, defrost arızası veya kapıdan nem girişi dolap içinde su ve buz oluşturabilir. Tahliye hattı açılır, defrost elemanları test edilir ve tekrarlayan sorunun nedeni onarılır.",
+    },
+  ],
+  "pastane-dolabi-tamiri": [
+    {
+      title: "Pastane dolabının bazı rafları soğumuyor",
+      body: "Pasta teşhir dolabında dengesiz sıcaklık çoğunlukla fan, hava kanalı, sensör konumu veya evaporatör buzlanmasından kaynaklanır. Her rafta ölçüm yapılarak hava dağılımı ve soğutma kapasitesi doğrulanır.",
+    },
+    {
+      title: "Pasta dolabı ürünleri kurutuyor veya terletiyor",
+      body: "Aşırı hava akışı, yanlış sıcaklık ayarı ve nem dengesizliği ürün görünümünü bozabilir. Pastane dolabı servisinde fan çalışması, sensör değeri ve soğutma çevrimi ürün tipine uygun biçimde kontrol edilir.",
+    },
+    {
+      title: "Pastane teşhir dolabı cam buğulanması",
+      body: "Cam yüzeyde sürekli terleme varsa ortam nemi, hava perdesi, fanlar ve cam ısıtma sistemi birlikte değerlendirilir. Yalnızca yüzeyi silmek yerine yoğuşmaya neden olan teknik sorun giderilir.",
+    },
+  ],
+  "sanayi-tipi-buzdolabi-tamiri": [
+    {
+      title: "Sanayi tipi buzdolabı soğutmuyor",
+      body: "Restoran, otel ve profesyonel mutfaklardaki dik veya tezgâh tipi dolaplarda soğutmama; kondenser, fan, sensör, gaz kaçağı ya da kompresör kaynaklı olabilir. Sanayi tipi buzdolabı tamirinde elektrik ve soğutma devresi birlikte ölçülür.",
+    },
+    {
+      title: "Endüstriyel soğutma sistemi sürekli çalışıyor",
+      body: "Endüstriyel buzdolabının durmadan çalışması yüksek enerji tüketimi ve kompresör yıpranması oluşturabilir. Kapı contası, kondenser temizliği, sensör, ortam sıcaklığı ve soğutucu akışkan değerleri kontrol edilerek yükün nedeni giderilir.",
+    },
+    {
+      title: "Endüstriyel dolap ses yapıyor veya sigorta attırıyor",
+      body: "Fan, kompresör, röle, kontaktör ve gevşek elektrik bağlantıları olağan dışı ses ya da sigorta sorununa yol açabilir. Cihaz tekrar tekrar çalıştırılmaz; elektriksel ölçüm yapılarak güvenli onarım uygulanır.",
+    },
+  ],
+  "kompresor-degisimi-gaz-dolumu": [
+    {
+      title: "Soğutma kompresörü devreye girmiyor",
+      body: "Kompresörün çalışmaması her zaman motorun arızalı olduğu anlamına gelmez. Besleme gerilimi, termik, röle, kontaktör, kapasitör ve kontrol sinyali ölçülmeden kompresör değişimi önerilmez.",
+    },
+    {
+      title: "Ticari dolapta gaz kaçağı ve yetersiz soğutma",
+      body: "Soğutucu gaz normal çalışma sırasında tükenmez; eksiklik varsa kaçak ihtimali araştırılır. Kaçak noktası onarılıp sızdırmazlık doğrulandıktan sonra sistem vakumlanır ve cihaz etiketine uygun gaz dolumu yapılır.",
+    },
+    {
+      title: "Kompresör değişimi sonrası çalışma testi",
+      body: "Yeni kompresörün kapasitesi ve yağ uyumu sistemle eşleşmelidir. Montajdan sonra akım, emiş-basma basıncı ve sıcaklık değerleri izlenerek ticari soğutma sisteminin kararlı çalıştığı doğrulanır.",
+    },
+  ],
+  "ticari-sogutma-periyodik-bakim": [
+    {
+      title: "Ticari soğutma sisteminde enerji tüketimi arttı",
+      body: "Kirli kondenser, zayıf fan, hava kaçağı ve yanlış sıcaklık kontrolü cihazın daha uzun çalışmasına neden olabilir. Periyodik bakımda çalışma değerleri ölçülür ve gereksiz enerji tüketimine yol açan noktalar belirlenir.",
+    },
+    {
+      title: "Endüstriyel soğutma arızalarını önleyici bakım",
+      body: "Soğuk oda, market dolabı ve sanayi tipi buzdolaplarında küçük sapmalar plansız duruşa dönüşmeden fark edilebilir. Fan, sensör, drenaj, elektrik bağlantıları ve soğutma devresi düzenli kontrol edilir.",
+    },
+    {
+      title: "İşletmelere özel bakım planı",
+      body: "Restoran, market, kasap, pastane, otel ve gıda depolarındaki cihaz sayısı ile kullanım yoğunluğu farklıdır. Bakım aralığı hazır bir takvimle değil, cihaz yükü ve ortam koşullarına göre belirlenir.",
+    },
+  ],
+};
+
 export function getServicePage(slug) {
   return SERVICE_PAGES.find((service) => service.slug === slug);
 }
 
 export function getServicePageById(id) {
   return SERVICE_PAGES.find((service) => service.id === id);
+}
+
+export function getServiceProblemSolutions(slug) {
+  return SERVICE_PROBLEM_SOLUTIONS[slug] || [];
 }
