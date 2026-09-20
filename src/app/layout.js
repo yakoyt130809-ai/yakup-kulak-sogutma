@@ -72,7 +72,12 @@ export async function generateMetadata() {
     icons: {
       icon: [
         {
-          url: "/sogukservis-logo.png",
+          url: "/favicon.ico",
+          type: "image/x-icon",
+          sizes: "48x48",
+        },
+        {
+          url: "/sogukservis-logo.png?v=2",
           type: "image/png",
           sizes: "96x96",
         },
